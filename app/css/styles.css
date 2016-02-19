@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300italic,100,500,700);
+body {
+  background: white;
+  font-family: "Roboto", sans-serif; }
+
+/* utility classes */
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0; }
+
+/* nav styles */
+nav#masthead {
+  border: none;
+  border-radius: 0;
+  height: 75px; }
+  nav#masthead .navbar-header {
+    border-right: 1px solid #666;
+    margin-top: 20px;
+    padding: 0 50px;
+    transition: all 0.5s ease; }
+    nav#masthead .navbar-header a img {
+      max-width: 163px; }
+  nav#masthead .navbar-collapse {
+    padding: 0; }
+  nav#masthead .navbar-nav {
+    margin-top: 13px; }
+  nav#masthead #primary-nav.navbar-nav {
+    margin-left: 50px; }
+    nav#masthead #primary-nav.navbar-nav li > a {
+      font-size: 13px;
+      text-transform: uppercase; }
+  nav#masthead #util-nav.navbar-nav.navbar-right {
+    margin-right: 0; }
+    nav#masthead #util-nav.navbar-nav.navbar-right li > a {
+      font-size: 11px; }
+
+@media (max-width: 768px) {
+  nav#masthead .navbar-header {
+    padding: 0 15px; } }
