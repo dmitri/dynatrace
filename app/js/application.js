@@ -15,8 +15,6 @@ $( document ).ready(function() {
       }
     }
   });
-  
-
 
   $( ".secondary-nav-toggle" ).on( "click", function(e) {
     e.preventDefault();
@@ -31,14 +29,21 @@ $( document ).ready(function() {
     $drawer_nav.slideToggle();
   });
   
+  $('[data-toggle=collapse]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+  
+  
   // add and remove the padding when the nav affixes
   
   $(".home #secondary-nav-container").on('affix.bs.affix', function(){
+    //$('#masthead.navbar-fixed-top').addClass('push-it');
     $('#slot-2').addClass('add-pad');
     $('#secondary-nav-brand img').addClass('sticky-logo');
   });
   
   $(".home #secondary-nav-container").on('affix-top.bs.affix', function(){
+    //$('#masthead.navbar-fixed-top').removeClass3('push-it');
     $('#slot-2').removeClass('add-pad');
     $('#secondary-nav-brand img').removeClass('sticky-logo');
   });
@@ -55,9 +60,7 @@ $( document ).ready(function() {
   
   
   $( ".tertiary-tech-toggle" ).on( "click", function(e) {
-    
     toggle_caret(this);
-
   });
     
   
@@ -65,6 +68,26 @@ $( document ).ready(function() {
   //$("#secondary-nav").sticky({ topSpacing: 0, center:true, className:"secondary-fixed" });
   //$("#tertiary-nav-container").sticky({ topSpacing:65, center:true, className:"tertiary-fixed" });
   
+
+  $('#off-canvas-nav').scotchPanel({
+
+      beforePanelOpen: function() {
+          //alert('Before Panel Opened');
+      },
+      afterPanelOpen: function() {
+          //alert('After Panel Opened');
+      },
+      beforePanelClose: function() {
+          //alert('Before Panel Closed');
+      },
+      afterPanelClose: function() {
+          //alert('After Panel Opened');
+      },
+
+      containerSelector: 'body',
+      direction: 'right',
+      clickSelector: '.toggle-panel'
+  });
 
 
 });

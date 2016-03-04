@@ -8,7 +8,16 @@
 body {
   background: white;
   font-family: "Roboto", sans-serif;
-  padding-top: 65px; }
+  padding-top: 65px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-tap-highlight-color: transparent;
+  -moz-text-size-adjust: none;
+  -moz-font-smoothing: antialiased;
+  -ms-tap-highlight-color: transparent;
+  -ms-text-size-adjust: none;
+  -ms-font-smoothing: antialiased; }
 
 body.secondary-tech {
   padding-top: 65px; }
@@ -28,7 +37,10 @@ nav#masthead {
   height: 65px;
   margin-bottom: 0;
   width: 100%;
-  z-index: 100; }
+  z-index: 100;
+  transition: all 0.5s ease; }
+  nav#masthead.navbar-fixed-top.push-it {
+    margin-top: -65px; }
   nav#masthead .navbar-header {
     border-right: 1px solid #666;
     margin-top: 16px;
@@ -36,6 +48,8 @@ nav#masthead {
     transition: all 0.5s ease; }
     nav#masthead .navbar-header a img {
       max-width: 163px; }
+  nav#masthead .navbar-toggle {
+    margin-top: 0; }
   nav#masthead .navbar-collapse {
     padding: 0; }
   nav#masthead .navbar-nav li > a {
@@ -70,6 +84,24 @@ nav#masthead {
       nav#masthead .util-nav.navbar-nav.navbar-right li#search img {
         height: 27px;
         width: 27px; }
+
+#off-canvas-nav {
+  background: #444; }
+  #off-canvas-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; }
+    #off-canvas-nav ul li a {
+      display: block;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      background: transparent;
+      color: #fff; }
+      #off-canvas-nav ul li a:hover {
+        background: #555;
+        text-decoration: none; }
 
 #nav-drawer {
   background: #f8f8f8;
@@ -403,4 +435,10 @@ nav#masthead {
 
 @media (max-width: 768px) {
   nav#masthead .navbar-header {
-    padding: 0 15px; } }
+    padding: 0 15px; }
+  .navbar-collapse {
+    background: #000;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    width: 255px; } }
