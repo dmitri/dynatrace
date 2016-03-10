@@ -12,26 +12,62 @@
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jansy-bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="home">
   
-  <div id="off-canvas-nav">
-     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Offerings</a></li>
-        <li><a href="#">Solutions</a></li>
-        <li><a href="#">Why Dynatrace?</a></li>
+  <div class="navmenu navmenu-default navmenu-fixed-right offcanvas">
+    <div class="offcanvas-logo">
+      <a href="index.html"><img src="images/logo.png" class="img-responsive" /></a>
+      <a href="#">X</a>
+    </div>
+    <ul class="nav navmenu-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Offerings <b class="caret"></b></a>
+        <ul class="dropdown-menu navmenu-nav">
+          <li><a href="#">AppMon</a></li>
+          <li><a href="#">uem</a></li>
+          <li><a href="#">synthetic</a></li>
+          <li><a href="#">dcrum</a></li>
+          <li><a href="#">ruxit</a></li>
+          <li><a href="#">expert services</a></li>
+          <li><a href="#">Show All Offerings</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Solutions <b class="caret"></b></a>
+        <ul class="dropdown-menu navmenu-nav">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Why Dynatrace? <b class="caret"></b></a>
+        <ul class="dropdown-menu navmenu-nav">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+      <li><a href="#">Resources</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Languages <b class="caret"></b></a>
+        <ul class="dropdown-menu navmenu-nav">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
   
-  <nav id="masthead" class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <nav id="masthead" class="navbar navbar-default navbar-inverse header">
+    <div id="util-nav-responsive"></div>
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle toggle-panel collapsed" aria-expanded="false">
+      <button type="button" class="navbar-toggle" 
+              aria-expanded="false" 
+              data-toggle="offcanvas" 
+              data-target=".navmenu" 
+              data-canvas="body">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        Menu
       </button>
       <a href="index.html"><img src="images/logo.png" class="img-responsive" /></a>
     </div>
@@ -47,10 +83,25 @@
         <li><a href="#">Why Dynatrace? <span class="nav-caret-down"></span></a></li>
       </ul>
       <ul class="util-nav nav navbar-nav navbar-right">
-        <li><a href="#">Resources</a></li>
-        <li class="divider"><a href="#">|</a></li>
-        <li><a href="#">Languages <span class="small-nav-caret-down"></span></a></li>
         <li id="search"><a href="#"><img src="images/icon-search.png" alt="Search Dynatrace" /></a></li>
+      </ul>
+      <ul id="util-nav-utils" class="util-nav nav navbar-nav navbar-right">
+        <li>
+            <a href="#">Resources</a>
+        </li>
+        <li class="divider"><a href="#">|</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Languages <span class="small-nav-caret-down"></span></a>
+            <ul class="dropdown-menu lang-dropdown" role="menu">
+              <li><a href="/en/index.html">English</a></li>
+              <li><a href="/fr/index.html">French</a></li>
+              <li><a href="/de/index.html">German</a></li>
+              <li><a href="/es/index.html">Spanish</a></li>
+              <li><a href="/it/index.html">Italian</a></li>
+              <li><a href="/zh/index.html">Chinese</a></li>
+              <li><a href="/ko/index.html">Korean</a></li>
+              <li><a href="/ja/index.html">Japanese</a></li>
+          </ul>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
@@ -126,39 +177,50 @@
     </div>
   </div>
   
-  <nav id="secondary-nav-container" class="navbar navbar-default">
+  <nav id="secondary-nav-container" class="navbar navbar-default header">
     <div class="container-fluid">
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" 
+              data-toggle="collapse" 
+              data-target="#secondary-nav-menu" 
+              aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a id="secondary-nav-brand" href="index.html"><img src="images/logo-mark.png" /></a>
       </div>
-
-      <ul id="secondary-nav" class="nav navbar-nav">
-        <li id="product-brand">appmon</li>
-        <li><a href="#">Capabilities <span class="nav-caret-down"></span></a></li>
-        <li class="dropdown">
-          <a href="#" class="tertiary-tech-toggle dropdown-toggle" data-toggle="dropdown">
-            Technologies <span class="nav-caret-down"></span>
-          </a>
-          <div class="dropdown-menu">
-            <ul>
-              <li><a href="technology.html">Java</a></li>
-              <li><a href="#">PHP</a></li>
-              <li><a href="#">.NET</a></li>
-              <li><a href="#">Node.js</a></li>
-              <li><a href="#">Chef</a></li>
-              <li><a href="#">Puppet</a></li>
-              <li><a href="#">AWS</a></li>
-              <li><a href="#">Azure</a></li>
-              <li><a href="#">CloudFoundry</a></li>
-              <li class="pull-right"><a href="#">View All &nbsp; <i class="fa fa-chevron-right"></i></a></li>
-            </ul>
-          </div>
-        </li>
-        <li><a href="#">How to Buy</a></li>
-      </ul>
-      <ul class="util-nav nav navbar-nav navbar-right">
-        <li><a href="#" class="cta">Free Trial!</a></li>
-      </ul>
+      
+      <div class="collapse navbar-collapse" id="secondary-nav-menu">
+        <ul id="secondary-nav" class="nav navbar-nav">
+          <li id="product-brand">appmon</li>
+          <li><a href="#">Capabilities <span class="nav-caret-down"></span></a></li>
+          <li class="dropdown">
+            <a href="#" class="tertiary-tech-toggle dropdown-toggle" data-toggle="dropdown">
+              Technologies <span class="nav-caret-down"></span>
+            </a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="technology.html">Java</a></li>
+                <li><a href="#">PHP</a></li>
+                <li><a href="#">.NET</a></li>
+                <li><a href="#">Node.js</a></li>
+                <li><a href="#">Chef</a></li>
+                <li><a href="#">Puppet</a></li>
+                <li><a href="#">AWS</a></li>
+                <li><a href="#">Azure</a></li>
+                <li><a href="#">CloudFoundry</a></li>
+                <li class="pull-right"><a href="#">View All &nbsp; <i class="fa fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">How to Buy</a></li>
+        </ul>
+        <ul class="util-nav nav navbar-nav navbar-right">
+          <li><a href="#" class="cta">Free Trial!</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
   
@@ -180,7 +242,7 @@
 
   <script src="js/jquery-1.10.2-min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/scotchPanels.min.js"></script>
+  <script src="js/jansy-bootstrap.min.js"></script>
   <script src="js/application.js"></script>
 </body>
 </html>
