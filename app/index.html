@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/jansy-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="home">
@@ -83,7 +84,14 @@
         <li><a href="#">Why Dynatrace? <span class="nav-caret-down"></span></a></li>
       </ul>
       <ul class="util-nav nav navbar-nav navbar-right">
-        <li id="search"><a href="#"><img src="images/icon-search.png" alt="Search Dynatrace" /></a></li>
+        <li id="search-container">
+          <div id="wrap">
+            <form action="" autocomplete="on">
+              <input id="search" name="search" type="text" placeholder="Search Dynatrace...">
+              <input id="search_submit" value="Rechercher" type="submit">
+            </form>
+          </div>
+        </li>
       </ul>
       <ul id="util-nav-utils" class="util-nav nav navbar-nav navbar-right">
         <li>
@@ -91,7 +99,9 @@
         </li>
         <li class="divider"><a href="#">|</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Languages <span class="small-nav-caret-down"></span></a>
+          <a href="#" class="dropdown-toggle drop-pad" data-toggle="dropdown">
+            Languages <span class="small-nav-caret-down"></span>
+          </a>
             <ul class="dropdown-menu lang-dropdown" role="menu">
               <li><a href="/en/index.html">English</a></li>
               <li><a href="/fr/index.html">French</a></li>
@@ -168,7 +178,7 @@
   <div id="hero">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 animate fadeInUp wow">
           <h1>Application Performance Monitoring.</h1>
           <h3>Ruxit full stack monitoring delivers complete performance metrics.</h3>
           <div class="cta-wrapper"><a href="#">Free Trial!</a></div>
@@ -227,7 +237,7 @@
   <div id="slot-2" class="slot">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-5 col-lg-5">
+        <div class="col-sm-12 col-md-5 wow animate fadeInLeft" data-wow-delay=".5s">
           <h1>Start end-to-end monitoring in just under <strong>5 minutes</strong></h1>
           <p>
             Ruxit full stack monitoring delivers complete performance metrics for your
@@ -243,6 +253,7 @@
   <script src="js/jquery-1.10.2-min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jansy-bootstrap.min.js"></script>
+  <script src="js/wow.min.js"></script>
   <script src="js/application.js"></script>
 </body>
 </html>
