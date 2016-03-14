@@ -168,15 +168,31 @@ nav#masthead {
   .navmenu-fixed-right .navbar-default .navbar-offcanvas .navmenu-nav > li > a:hover {
     background: #000;
     color: #FAFAFA; }
+  .navmenu-fixed-right i.fa-times {
+    background: #333;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    padding: 23px 30px 24px 30px;
+    text-decoration: none;
+    transition: all 0.3s ease; }
+    .navmenu-fixed-right i.fa-times:hover {
+      background: #000;
+      color: rgba(255, 255, 255, 0.9); }
 
 #nav-drawer {
   background: #f8f8f8;
   color: #6f6f6f;
   display: none;
+  height: auto;
   padding-top: 20px; }
+  #nav-drawer .subnav-block {
+    display: none; }
+    #nav-drawer .subnav-block.active {
+      display: block; }
   #nav-drawer .offering {
     box-sizing: border-box;
-    padding-right: 100px; }
+    padding-right: 100px;
+    height: 150px; }
     #nav-drawer .offering a {
       text-decoration: none;
       transition: all 0.5s ease; }
@@ -354,22 +370,6 @@ nav#masthead {
     -ms-border-radius: 4px;
     border-radius: 4px;
     margin-top: 12px; }
-  #secondary-nav-container .nav-caret-down:before {
-    border-top: 5px solid #090101;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent; }
-  #secondary-nav-container .nav-caret-down:after {
-    border-top: 4px solid #fdf7f7;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; }
-  #secondary-nav-container .nav-caret-up:before {
-    border-bottom: 5px solid #090101;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent; }
-  #secondary-nav-container .nav-caret-up:after {
-    border-bottom: 4px solid #fdf7f7;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; }
 
 .slot h1 {
   font-weight: 300;
@@ -389,9 +389,7 @@ nav#masthead {
   line-height: 2; }
 
 #slot-2 {
-  background: url(../images/screen-shots.png) no-repeat center right;
-  background-size: 45%;
-  padding: 165px 0; }
+  padding: 115px 0; }
   #slot-2.tech {
     background: none;
     padding: 30px 0; }
@@ -405,24 +403,22 @@ nav#masthead {
   float: right;
   margin-top: -12px;
   margin-right: -5px; }
-
-.nav-caret-down:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-top: 5px solid #fdf7f7;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent; }
-
-.nav-caret-down:after {
-  content: '';
-  position: absolute;
-  left: 1px;
-  top: 0;
-  border-top: 4px solid #090101;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent; }
+  .nav-caret-down:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 5px solid #fdf7f7;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent; }
+  .nav-caret-down:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 0;
+    border-top: 4px solid #090101;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; }
 
 .nav-caret-up {
   position: relative;
@@ -430,24 +426,22 @@ nav#masthead {
   float: right;
   margin-top: -12px;
   margin-right: -5px; }
-
-.nav-caret-up:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-bottom: 5px solid #fdf7f7;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent; }
-
-.nav-caret-up:after {
-  content: '';
-  position: absolute;
-  left: 1px;
-  top: 1px;
-  border-bottom: 4px solid #090101;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent; }
+  .nav-caret-up:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 5px solid #fdf7f7;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent; }
+  .nav-caret-up:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    border-bottom: 4px solid #090101;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; }
 
 .small-nav-caret-down {
   position: relative;
@@ -455,24 +449,22 @@ nav#masthead {
   float: right;
   margin-top: -12px;
   margin-right: -5px; }
-
-.small-nav-caret-down:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-top: 3px solid #fdf7f7;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent; }
-
-.small-nav-caret-down:after {
-  content: '';
-  position: absolute;
-  left: 1px;
-  top: 0;
-  border-top: 2px solid #090101;
-  border-left: 2px solid transparent;
-  border-right: 2px solid transparent; }
+  .small-nav-caret-down:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 3px solid #fdf7f7;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent; }
+  .small-nav-caret-down:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 0;
+    border-top: 2px solid #090101;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent; }
 
 .small-nav-caret-up {
   position: relative;
@@ -480,24 +472,22 @@ nav#masthead {
   float: right;
   margin-top: -12px;
   margin-right: -5px; }
-
-.small-nav-caret-up:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-bottom: 3px solid #fdf7f7;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent; }
-
-.small-nav-caret-up:after {
-  content: '';
-  position: absolute;
-  left: 1px;
-  top: 1px;
-  border-bottom: 2px solid #090101;
-  border-left: 2px solid transparent;
-  border-right: 2px solid transparent; }
+  .small-nav-caret-up:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 3px solid #fdf7f7;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent; }
+  .small-nav-caret-up:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    border-bottom: 2px solid #090101;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent; }
 
 @media (min-width: 768px) and (max-width: 950px) {
   #util-nav-responsive {
@@ -547,4 +537,6 @@ nav#masthead {
     right: 0; }
     nav#masthead .navbar-toggle:hover {
       background: #111;
-      transition: all 0.3s ease; } }
+      transition: all 0.3s ease; }
+  #nav-drawer {
+    display: none !important; } }

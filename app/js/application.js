@@ -1,68 +1,31 @@
 $( document ).ready(function() {
 
-  $( ".secondary-nav-toggle" ).on( "click", function(e) {
+  $( "#primary-nav li a" ).on( "click", function(e) {
     e.preventDefault();
     $('html,body').animate({ scrollTop: 0 }, 'fast');
-    
-    // get drawer toggle 
-    $drawer_toggle_arrow = $('.drawer-indicator');
 
-    toggle_caret($drawer_toggle_arrow);
+
+    // get the nav drawer
+    $nav_drawer = $('#nav-drawer'); // get the nav drawer
+    $sub_nav = $('.subnav-block')    // get all the subnav blocks
     
-    $drawer_nav = $('#nav-drawer');
-    $drawer_nav.slideToggle('fast', function() {
-      scrollFunction();
-    });
+    
+    // check if it's open, if not open it
+    if(!$($nav_drawer).hasClass('open')) {
+      drawer_toggle($nav_drawer);
+    }
+    
+    alert($("#primary-nav li a").index(this));
+    
+    // clear the subnav 
+    //$sub_nav.hide();
+
+    // get and assign the bottom of the drawer toggle
+    $caret = $(this).find('span');
+    toggle_caret($caret);
     
   });
 
-
-
-  // bootstrap sticky headers 
-  
-  // $('.home #secondary-nav-container').affix({
-//     offset: {
-//       top: $('#secondary-nav').offset().top + 0,
-//       bottom: function () {
-//       }
-//     }
-//   });
-//
-//   // add and remove the padding when the nav affixes
-//
-//   $(".home #secondary-nav-container").on('affix.bs.affix', function(){
-//     //$('#masthead.navbar-fixed-top').addClass('push-it');
-//     $('#slot-2').addClass('add-pad');
-//     $('#secondary-nav-brand img').addClass('sticky-logo');
-//   });
-//
-//   $(".home #secondary-nav-container").on('affix-top.bs.affix', function(){
-//     //$('#masthead.navbar-fixed-top').removeClass3('push-it');
-//     $('#slot-2').removeClass('add-pad');
-//     $('#secondary-nav-brand img').removeClass('sticky-logo');
-//   });
-//
-//   $(".secondary-tech #secondary-nav-container").on('affix.bs.affix', function(){
-//     $('#hero').addClass('add-pad');
-//     $('#secondary-nav-brand img').addClass('sticky-logo');
-//   });
-//
-//   $(".secondary-tech #secondary-nav-container").on('affix-top.bs.affix', function(){
-//     $('#hero').removeClass('add-pad');
-//     $('#secondary-nav-brand img').removeClass('sticky-logo');
-//   });
-//
-//
-//   $( ".tertiary-tech-toggle" ).on( "click", function(e) {
-//     toggle_caret(".tertiary-tech-toggle span");
-//   });
-//
-  
-  //$("#masthead").sticky({ topSpacing: 0, className:"prime-fixed" });
-  //$("#secondary-nav").sticky({ topSpacing: 0, center:true, className:"secondary-fixed" });
-  //$("#tertiary-nav-container").sticky({ topSpacing:65, center:true, className:"tertiary-fixed" });
-   
-   
   
   /* set up the scrolltracking for animations */
   var wow = new WOW(
@@ -166,9 +129,24 @@ $( document ).ready(function() {
   $('#masthead .dropdown').on('hide.bs.dropdown', function(e){
     $(this).find('.dropdown-menu').first().stop(true, true).hide();
   });
+  
+  // off canvas close button
+  $('.offcanvas-close').on('click', function(e){
+    close_off_canvas();
+  });
 });
+
+drawer_toggle = function($drawer) {
+  $drawer.slideToggle('fast', function() { 
+    $drawer.toggleClass('open');
+  });
+}
 
 toggle_caret = function(el) {
   $caret = $(el);
   $caret.toggleClass('nav-caret-down').toggleClass('nav-caret-up');
+}
+
+close_off_canvas = function() {
+  $('#masthead .navbar-toggle').click();
 }
