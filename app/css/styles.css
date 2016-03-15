@@ -299,8 +299,6 @@ nav#masthead {
   padding: 160px 0;
   position: relative;
   text-align: center; }
-  #hero.home {
-    z-index: 99; }
   #hero h1, #hero h3 {
     color: white; }
   #hero h1 {
@@ -338,6 +336,9 @@ nav#masthead {
     font-weight: 300; }
     #hero.tech h1 strong {
       font-weight: 400; }
+
+.home #hero {
+  z-index: 99; }
 
 #secondary-nav-container {
   background: white;

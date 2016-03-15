@@ -411,12 +411,7 @@ nav#masthead {
   padding: 160px 0;
   position: relative;
   text-align: center;
-  
-  &.home {
-    z-index: 99;
-  }
-  
-  
+
   h1, h3 {
     color: rgb(255,255,255);
   }
@@ -464,6 +459,10 @@ nav#masthead {
       }
     }
   }
+}
+
+.home #hero {
+    z-index: 99;
 }
 
 #secondary-nav-container {
