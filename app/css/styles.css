@@ -298,8 +298,9 @@ nav#masthead {
   background-size: cover;
   padding: 160px 0;
   position: relative;
-  text-align: center;
-  z-index: 99; }
+  text-align: center; }
+  #hero.home {
+    z-index: 99; }
   #hero h1, #hero h3 {
     color: white; }
   #hero h1 {
