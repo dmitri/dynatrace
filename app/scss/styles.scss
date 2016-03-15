@@ -30,6 +30,13 @@ $font-secondary: 'Titillium Web', sans-serif;;
 .clearfix { display: block; }
 /* close commented backslash hack */
 
+*{
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  font-family:arial;
+}
+
 body {
   background: rgba(255,255,255,1);
   font-family: $font-stack;
@@ -857,13 +864,53 @@ nav#masthead {
     }
   }
   
-  #secondary-nav-container .navbar-header {
-    #secondary-nav-brand {
-      margin-left: 15px;
+  #secondary-nav-container {
+    .navbar-header {
+      #secondary-nav-brand {
+        margin-left: 15px;
+      }
+    
+      #secondary-nav-product {
+        border-right: none;
+      }
+      
+      .navbar-toggle {
+        background: #f8f8f8;
+        border-radius: 0;
+        box-sizing: border-box;
+        border: none;
+        color: #555;
+        font-size: 20px;
+        margin: 0;
+        padding: 18px 20px;
+        text-align: center;
+      }
+    }
+    #secondary-nav {
+      margin-left: 0;
+      li > a {
+        padding: 22px 35px 22px 12px;
+        text-align: center;
+      }
     }
     
-    #secondary-nav-product {
-      border-right: none;
+    .util-nav.navbar-nav.navbar-right {
+      margin-bottom: 0;
+    }
+    .navbar-collapse {
+      background: #FFF;
+      box-shadow: 0 2px 3px #ccc;
+      padding-left: 0;
+      padding-right: 0;
+      overflow-x: hidden;
+      
+      a.cta {
+        @include border-radius(0);
+        margin-left: 0px;
+        margin-right: -5px;
+        text-align: center;
+        width: 101%;
+      }
     }
   }
   
@@ -878,7 +925,7 @@ nav#masthead {
 }
 
 // iphone 6
-@media screen and ( max-height: 627px ){
+@media screen and ( max-width: 600px ){
   #hero  {
     padding: 85px 0;
     
@@ -889,7 +936,7 @@ nav#masthead {
   }
 }
 
-@media screen and ( max-height: 568px ){
+@media screen and ( max-width: 320px ){
   #hero  {
     padding: 55px 0;
     

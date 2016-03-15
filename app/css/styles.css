@@ -24,6 +24,12 @@
   display: block; }
 
 /* close commented backslash hack */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: arial; }
+
 body {
   background: white;
   font-family: "Roboto", sans-serif;
@@ -637,19 +643,51 @@ nav#masthead {
     margin-left: 15px; }
   #secondary-nav-container .navbar-header #secondary-nav-product {
     border-right: none; }
+  #secondary-nav-container .navbar-header .navbar-toggle {
+    background: #f8f8f8;
+    border-radius: 0;
+    box-sizing: border-box;
+    border: none;
+    color: #555;
+    font-size: 20px;
+    margin: 0;
+    padding: 18px 20px;
+    text-align: center; }
+  #secondary-nav-container #secondary-nav {
+    margin-left: 0; }
+    #secondary-nav-container #secondary-nav li > a {
+      padding: 22px 35px 22px 12px;
+      text-align: center; }
+  #secondary-nav-container .util-nav.navbar-nav.navbar-right {
+    margin-bottom: 0; }
+  #secondary-nav-container .navbar-collapse {
+    background: #FFF;
+    box-shadow: 0 2px 3px #ccc;
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden; }
+    #secondary-nav-container .navbar-collapse a.cta {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0;
+      margin-left: 0px;
+      margin-right: -5px;
+      text-align: center;
+      width: 101%; }
   #nav-drawer {
     display: none !important; }
   #slot-2 {
     background: none; } }
 
-@media screen and (max-height: 627px) {
+@media screen and (max-width: 600px) {
   #hero {
     padding: 85px 0; }
     #hero h1 {
       font-size: 34px;
       margin-top: 0; } }
 
-@media screen and (max-height: 568px) {
+@media screen and (max-width: 320px) {
   #hero {
     padding: 55px 0; }
     #hero h1 {
