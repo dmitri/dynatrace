@@ -5,16 +5,15 @@ $( document ).ready(function() {
     var reset_scroll;
 
     $(function() {
-      return $(".sticky-header").stick_in_parent({
-        parent: ".sticky-parent"
-      });
-      return $(".sticky-header.secondary").stick_in_parent({
+      return $(".sticky-header, .secondary").stick_in_parent({
         parent: ".sticky-parent"
       }).on("sticky_kit:stick", function(e) {
-        alert('show brand');
+        if($('#secondary-nav-container').hasClass('is_stuck')) {
+          $('#secondary-nav-brand img').addClass('sticky-logo');
+        }
       })
       .on("sticky_kit:unstick", function(e) {
-        alert('hide brand');
+          $('#secondary-nav-brand img').removeClass('sticky-logo');
       });
     });
 
