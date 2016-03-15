@@ -884,13 +884,37 @@ nav#masthead {
         margin: 0;
         padding: 18px 20px;
         text-align: center;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: #d8d8d8;
+        }
       }
     }
     #secondary-nav {
       margin-left: 0;
       li > a {
-        padding: 22px 35px 22px 12px;
+        padding: 22px 35px 22px 8px;
         text-align: center;
+      }
+      
+      li.dropdown.open .dropdown-menu {
+        background: none;
+        height: auto !important;
+        
+        li {
+          border-top: 1px solid #d8d8d8;
+          box-sizing: border-box;
+          float: left;
+          width: 50%;
+          
+          &:nth-child(even) {
+            border-left: 1px solid #d8d8d8;
+          }
+          a {
+            
+          }
+        }
       }
     }
     
@@ -899,17 +923,20 @@ nav#masthead {
     }
     .navbar-collapse {
       background: #FFF;
-      box-shadow: 0 2px 3px #ccc;
+      box-shadow: 0 2px 3px #777;
       padding-left: 0;
       padding-right: 0;
       overflow-x: hidden;
       
       a.cta {
         @include border-radius(0);
+        margin-top: 0;
         margin-left: 0px;
         margin-right: -5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         text-align: center;
-        width: 101%;
+        width: 100%;
       }
     }
   }
