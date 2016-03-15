@@ -1,29 +1,125 @@
 $( document ).ready(function() {
+  
+  // sticky header set up
+  (function() {
+    var reset_scroll;
+
+    $(function() {
+      return $(".sticky-header").stick_in_parent({
+        parent: ".sticky-parent"
+      });
+      return $(".sticky-header.secondary").stick_in_parent({
+        parent: ".sticky-parent"
+      }).on("sticky_kit:stick", function(e) {
+        alert('show brand');
+      })
+      .on("sticky_kit:unstick", function(e) {
+        alert('hide brand');
+      });
+    });
+
+    reset_scroll = function() {
+      var scroller;
+      scroller = $("body,html");
+      scroller.stop(true);
+      if ($(window).scrollTop() !== 0) {
+        scroller.animate({
+          scrollTop: 0
+        }, "fast");
+      }
+      return scroller;
+    };
+
+    window.scroll_it = function() {
+      var max;
+      max = $(document).height() - $(window).height();
+      return reset_scroll().animate({
+        scrollTop: max
+      }, max * 3).delay(100).animate({
+        scrollTop: 0
+      }, max * 3);
+    };
+
+    window.scroll_it_wobble = function() {
+      var max, third;
+      max = $(document).height() - $(window).height();
+      third = Math.floor(max / 3);
+      return reset_scroll().animate({
+        scrollTop: third * 2
+      }, max * 3).delay(100).animate({
+        scrollTop: third
+      }, max * 3).delay(100).animate({
+        scrollTop: max
+      }, max * 3).delay(100).animate({
+        scrollTop: 0
+      }, max * 3);
+    };
+
+    $(window).on("resize", (function(_this) {
+      return function(e) {
+        return $(document.body).trigger("sticky_kit:recalc");
+      };
+    })(this));
+
+  }).call(this);
+  
+  // nav functions
 
   $( "#primary-nav li a" ).on( "click", function(e) {
     e.preventDefault();
+
+    // if user has scrolled deep in to the page, get back to the top
     $('html,body').animate({ scrollTop: 0 }, 'fast');
-
-
-    // get the nav drawer
+    
+    $nav_set = $('#primary-nav li a'); // get the nav
     $nav_drawer = $('#nav-drawer'); // get the nav drawer
-    $sub_nav = $('.subnav-block')    // get all the subnav blocks
+    $sub_nav = $('.subnav-block')    // get all the subnav blocks in the drawer
+    
+    // remove all active classes
+    $($nav_set).removeClass('active');
+    
+    // set up which subnav is desired so the container will respect the height
+    // get the index of the selected nav 
+    $selected_index = ($($nav_set).index(this));
+    
+    // remove active class from submenus
+    $sub_nav.removeClass('active');
+    // show the subnav with the same index and add the active class
+    $selected_subnav = $sub_nav.get($selected_index);
+    $selected_subnav_height = $($selected_subnav).height() + 75;
+    // animate the height of the container
     
     
-    // check if it's open, if not open it
-    if(!$($nav_drawer).hasClass('open')) {
-      drawer_toggle($nav_drawer);
-    }
     
-    alert($("#primary-nav li a").index(this));
-    
-    // clear the subnav 
-    //$sub_nav.hide();
+    // if user is clicking a nav link already open and set, close it
+    if($(this).find('span').hasClass('nav-caret-up')) {
+      drawer_toggle($nav_drawer);   // close the drawer
+      reset_nav();                  // reset the nav states
+    } else {
+      // reset the uninvolved carets
+      $($nav_set).each(function(){
+        if(!$(this).hasClass('active')) {
+          $(this).find('span').removeClass('nav-caret-up').addClass('nav-caret-down');
+        }
+      });
 
-    // get and assign the bottom of the drawer toggle
-    $caret = $(this).find('span');
-    toggle_caret($caret);
-    
+      $(this).addClass('active'); // add active class to clicked anchor
+      
+      if($($nav_drawer).hasClass('open')) {
+        $($selected_subnav).addClass('active');
+        $nav_drawer.animate({
+            height: $selected_subnav_height
+          }, 250, function() {
+        });
+      } else {
+        $($selected_subnav).addClass('active');
+      }
+      // all set up - if drawer is not open, open it
+      if(!$($nav_drawer).hasClass('open')) {
+        drawer_toggle($nav_drawer);
+      }
+      toggle_caret(this);
+    };
   });
 
   
@@ -45,94 +141,32 @@ $( document ).ready(function() {
   wow.init();
   
   /* set up the sticky headers */
-  var topOffset = new Array();
 
-  function scrollFunction(){
-      var scrollHeight = $(window).scrollTop();
-      var headerCounter = 0;
-      var scrolled      = 0;
-      var headerItems   = $('.header').length;
-
-      $('.header').each(function(index, el){
-
-          var elementHeight = $(this).outerHeight();
-
-          var nextElementHeight = 0;
-          var nextElement;
-
-          if(index !== $('.header').length - 1){
-              nextElementHeight = $('.header').eq(index + 1).outerHeight();
-              nextElement       = $('.header').eq(index + 1);
-          }
-
-          if(scrollHeight >= topOffset[headerCounter]
-              && (scrollHeight < topOffset[headerCounter + 1] || headerCounter == headerItems-1)){
-
-              scrolled = 1;
-
-              if(scrollHeight >= topOffset[headerCounter + 1] - elementHeight){
-                  $(this).css({
-                      position: "fixed",
-                      top: - (scrollHeight - (topOffset[headerCounter + 1] - elementHeight))
-                  });
-                  nextElement.css({
-                      position: "fixed",
-                      top: topOffset[headerCounter + 1] - scrollHeight
-                  });
-                  $('body').css({
-                      "padding-top": elementHeight + nextElementHeight
-                  });
-                  return false;
-              }
-              else{
-                  $(this).css({
-                      position: "fixed",
-                      top: 0
-                  }).removeClass('affix-top').addClass('affix');
-                  if(nextElement) {
-                    nextElement.addClass('affix-top');
-                  }
-                  $('body').css({
-                      "padding-top": elementHeight
-                  });
-              }
-
-          }
-          else{
-              $(this).addClass('affix-top').removeClass('affix').css('position', '').css('top', '0');
-          }
-
-          headerCounter++;
-      });
-
-      if(scrolled == 0){
-          $('body').css({
-              "padding-top": 0
-          });
-      }
-  }
-
-  $(function(){
-      $('.header').each(function(){
-          topOffset.push($(this).offset().top);
-      });
-  });
-
-  $(window).scroll(scrollFunction);
-  
    // ADD SLIDEDOWN ANIMATION TO DROPDOWN //
-  $('#masthead .dropdown').on('show.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+  $('.dropdown').on('show.bs.dropdown', function(e){
+    $(this).find(".nav-caret-down").removeClass('nav-caret-down').addClass('nav-caret-up');
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown('fast');
   });
 
   // ADD SLIDEUP ANIMATION TO DROPDOWN //
-  $('#masthead .dropdown').on('hide.bs.dropdown', function(e){
+  $('.dropdown').on('hide.bs.dropdown', function(e){
+    $(this).find(".nav-caret-up").removeClass('nav-caret-up').addClass('nav-caret-down');
     $(this).find('.dropdown-menu').first().stop(true, true).hide();
   });
   
   // off canvas close button
   $('.offcanvas-close').on('click', function(e){
     close_off_canvas();
+  });
+  
+  $('.close-drawer a').on('click', function(e){
+    e.preventDefault();
+    close_drawer();
+  });
+  
+  // toggle secondary nav carets
+  $('#secondary-nav li.dropdown a').on('click', function(e){
+    toggle_caret(this);
   });
 });
 
@@ -142,9 +176,21 @@ drawer_toggle = function($drawer) {
   });
 }
 
-toggle_caret = function(el) {
-  $caret = $(el);
+close_drawer = function() {
+  $drawer = $('#nav-drawer');
+  $drawer.slideUp().toggleClass('open');
+  reset_nav();
+}
+
+toggle_caret = function($el) {
+  $caret = $($el).find('span');
   $caret.toggleClass('nav-caret-down').toggleClass('nav-caret-up');
+}
+
+reset_nav = function() {
+  $nav_set = $("#primary-nav li a");
+  $nav_set.removeClass('active');
+  $nav_set.find('span.nav-caret-up').removeClass('nav-caret-up').addClass('nav-caret-down');
 }
 
 close_off_canvas = function() {

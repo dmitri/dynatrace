@@ -27,6 +27,9 @@ a, a:visited, a:focus {
   color: #00a6fa;
   outline: 0; }
 
+.data-sticky-parent {
+  overflow: hidden; }
+
 /* nav styles */
 nav#masthead {
   border: none;
@@ -58,7 +61,12 @@ nav#masthead {
     font-weight: 400;
     letter-spacing: 1px;
     padding-top: 24px;
-    padding-bottom: 21px; }
+    padding-bottom: 21px;
+    transition: background .4s ease; }
+    nav#masthead .navbar-nav li > a.active {
+      background: #353738;
+      color: white;
+      font-weight: 500; }
   nav#masthead #primary-nav.navbar-nav {
     margin-left: 25px; }
     nav#masthead #primary-nav.navbar-nav li > a {
@@ -161,21 +169,24 @@ nav#masthead {
   height: 0;
   transition: all 0.3s ease; }
 
-.navmenu-fixed-right {
+.navmenu-fixed-right.navmenu-default {
   background: #111;
   border: none; }
-  .navmenu-fixed-right .navmenu-default .navmenu-nav > li > a:hover,
-  .navmenu-fixed-right .navbar-default .navbar-offcanvas .navmenu-nav > li > a:hover {
-    background: #000;
-    color: #FAFAFA; }
-  .navmenu-fixed-right i.fa-times {
+  .navmenu-fixed-right.navmenu-default .navmenu-nav > li > a,
+  .navmenu-fixed-right.navmenu-default .navbar-offcanvas .navmenu-nav > li > a {
+    text-transform: uppercase; }
+    .navmenu-fixed-right.navmenu-default .navmenu-nav > li > a:hover,
+    .navmenu-fixed-right.navmenu-default .navbar-offcanvas .navmenu-nav > li > a:hover {
+      background: #000;
+      color: #FAFAFA; }
+  .navmenu-fixed-right.navmenu-default i.fa-times {
     background: #333;
     color: rgba(255, 255, 255, 0.5);
     font-weight: bold;
     padding: 23px 30px 24px 30px;
     text-decoration: none;
     transition: all 0.3s ease; }
-    .navmenu-fixed-right i.fa-times:hover {
+    .navmenu-fixed-right.navmenu-default i.fa-times:hover {
       background: #000;
       color: rgba(255, 255, 255, 0.9); }
 
@@ -184,11 +195,15 @@ nav#masthead {
   color: #6f6f6f;
   display: none;
   height: auto;
-  padding-top: 20px; }
+  padding: 25px 0 50px 0;
+  position: relative; }
   #nav-drawer .subnav-block {
-    display: none; }
+    display: none;
+    margin: 0 0 0 100px; }
     #nav-drawer .subnav-block.active {
-      display: block; }
+      display: block;
+      margin: 0;
+      transition: margin 0.4s ease; }
   #nav-drawer .offering {
     box-sizing: border-box;
     padding-right: 100px;
@@ -227,17 +242,24 @@ nav#masthead {
       background: #00a6fa;
       color: white;
       text-decoration: none; }
-  #nav-drawer .close-drawer a {
-    color: #CCC;
-    display: block;
-    font-size: 22px;
-    text-align: center;
-    margin-top: 10px;
-    padding: 5px 0;
-    transition: all 0.3s ease; }
-    #nav-drawer .close-drawer a:hover {
-      background: #dfdfdf;
-      color: #00a6fa; }
+  #nav-drawer .close-drawer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10; }
+    #nav-drawer .close-drawer a {
+      color: #CCC;
+      display: block;
+      font-size: 22px;
+      text-align: center;
+      margin-top: 10px;
+      padding: 5px 0;
+      transition: all 0.3s ease; }
+      #nav-drawer .close-drawer a:hover {
+        background: #dfdfdf;
+        color: #00a6fa; }
 
 #hero {
   background: url(../images/hero-appmon.jpg) no-repeat center center;
@@ -293,7 +315,9 @@ nav#masthead {
   height: 65px;
   margin-bottom: 0;
   width: 100%;
-  z-index: 101; }
+  z-index: 10; }
+  #secondary-nav-container .container-fluid {
+    max-width: 1180px; }
   #secondary-nav-container .navbar-header {
     position: relative; }
     #secondary-nav-container .navbar-header #secondary-nav-brand img {
@@ -307,11 +331,34 @@ nav#masthead {
         left: -90px; }
   #secondary-nav-container.affix {
     top: 0px; }
-  #secondary-nav-container .container-fluid {
-    max-width: 1180px; }
-  #secondary-nav-container #product-brand {
+  #secondary-nav-container .nav-caret-up:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 5px solid #222;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent; }
+  #secondary-nav-container .nav-caret-up:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    border-bottom: 4px solid #fdf7f7;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; }
+  #secondary-nav-container .nav-caret-down:before {
+    border-top: 5px solid #090101;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent; }
+  #secondary-nav-container .nav-caret-down:after {
+    border-top: 4px solid #fdf7f7;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; }
+  #secondary-nav-container #secondary-nav-product {
     border-right: 1px solid #d6d6d6;
     color: #666;
+    display: inline-block;
     font-family: "Titillium Web", sans-serif;
     font-size: 30px;
     font-weight: 400;
@@ -330,13 +377,19 @@ nav#masthead {
     margin-left: -33px; }
     #secondary-nav-container #secondary-nav li.dropdown.open {
       position: static; }
+      #secondary-nav-container #secondary-nav li.dropdown.open a {
+        background: #f8f8f8; }
       #secondary-nav-container #secondary-nav li.dropdown.open .dropdown-menu {
         background: #f8f8f8;
+        border-top: none;
         border-bottom: 1px solid #d8d8d8;
         box-shadow: none;
         display: table;
+        height: 55px !important;
+        /* used to created the stretchy bounce on slideDown */
         min-width: auto;
         margin: 0;
+        overflow: hidden;
         padding: 0;
         left: 0;
         right: 0;
@@ -389,7 +442,11 @@ nav#masthead {
   line-height: 2; }
 
 #slot-2 {
-  padding: 115px 0; }
+  background: url(../images/screen-shots.png) no-repeat 700px bottom;
+  transition: background 0.3s ease;
+  padding: 155px 0; }
+  #slot-2 .offcanvas-img {
+    overflow: hidden; }
   #slot-2.tech {
     background: none;
     padding: 30px 0; }
@@ -398,11 +455,10 @@ nav#masthead {
   margin-top: 65px; }
 
 .nav-caret-down {
+  display: inline-block;
+  margin-top: -8px;
   position: relative;
-  display: block;
-  float: right;
-  margin-top: -12px;
-  margin-right: -5px; }
+  vertical-align: middle; }
   .nav-caret-down:before {
     content: '';
     position: absolute;
@@ -421,11 +477,10 @@ nav#masthead {
     border-right: 4px solid transparent; }
 
 .nav-caret-up {
+  display: inline-block;
+  margin-top: -8px;
   position: relative;
-  display: block;
-  float: right;
-  margin-top: -12px;
-  margin-right: -5px; }
+  vertical-align: middle; }
   .nav-caret-up:before {
     content: '';
     position: absolute;
@@ -443,13 +498,12 @@ nav#masthead {
     border-left: 4px solid transparent;
     border-right: 4px solid transparent; }
 
-.small-nav-caret-down {
+.small-drop .nav-caret-down {
+  display: inline-block;
+  margin-top: -6px;
   position: relative;
-  display: block;
-  float: right;
-  margin-top: -12px;
-  margin-right: -5px; }
-  .small-nav-caret-down:before {
+  vertical-align: middle; }
+  .small-drop .nav-caret-down:before {
     content: '';
     position: absolute;
     top: 0;
@@ -457,7 +511,7 @@ nav#masthead {
     border-top: 3px solid #fdf7f7;
     border-left: 3px solid transparent;
     border-right: 3px solid transparent; }
-  .small-nav-caret-down:after {
+  .small-drop .nav-caret-down:after {
     content: '';
     position: absolute;
     left: 1px;
@@ -466,13 +520,12 @@ nav#masthead {
     border-left: 2px solid transparent;
     border-right: 2px solid transparent; }
 
-.small-nav-caret-up {
+.small-drop .nav-caret-up {
+  display: inline-block;
+  margin-top: -6px;
   position: relative;
-  display: block;
-  float: right;
-  margin-top: -12px;
-  margin-right: -5px; }
-  .small-nav-caret-up:before {
+  vertical-align: middle; }
+  .small-drop .nav-caret-up:before {
     content: '';
     position: absolute;
     top: 0;
@@ -480,7 +533,7 @@ nav#masthead {
     border-bottom: 3px solid #fdf7f7;
     border-left: 3px solid transparent;
     border-right: 3px solid transparent; }
-  .small-nav-caret-up:after {
+  .small-drop .nav-caret-up:after {
     content: '';
     position: absolute;
     left: 1px;
@@ -507,7 +560,9 @@ nav#masthead {
       padding-left: 15px;
       padding-right: 29px; }
   nav#masthead .util-nav.navbar-nav.navbar-right li#search-container {
-    margin-left: 25px; } }
+    margin-left: 25px; }
+  #slot-2 {
+    background: url(../images/screen-shots.png) no-repeat 600px bottom; } }
 
 @media (max-width: 768px) {
   nav#masthead .navbar-header {
@@ -539,4 +594,6 @@ nav#masthead {
       background: #111;
       transition: all 0.3s ease; }
   #nav-drawer {
-    display: none !important; } }
+    display: none !important; }
+  #slot-2 {
+    background: none; } }

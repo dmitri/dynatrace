@@ -46,6 +46,10 @@ a, a:visited, a:focus {
   outline: 0;
 }
 
+.data-sticky-parent {
+  overflow: hidden;
+}
+
 /* nav styles */
 nav#masthead {
   border: none;
@@ -87,6 +91,13 @@ nav#masthead {
     letter-spacing: 1px;
     padding-top: 24px;
     padding-bottom: 21px;
+    transition: background .4s ease;
+    
+    &.active {
+      background: #353738;
+      color: rgba(255,255,255, 1);
+      font-weight: 500;
+    }
   }
   
   #primary-nav.navbar-nav {
@@ -227,12 +238,14 @@ nav#masthead {
   transition: all 0.3s ease;
 }
 
-.navmenu-fixed-right {
+.navmenu-fixed-right.navmenu-default {
   background: #111;
   border: none;
 
-  .navmenu-default .navmenu-nav>li>a, 
-  .navbar-default .navbar-offcanvas .navmenu-nav>li>a {
+  .navmenu-nav>li>a, 
+  .navbar-offcanvas .navmenu-nav>li>a {
+    text-transform: uppercase;
+    
     &:hover {
       background: #000;
       color: #FAFAFA;
@@ -260,13 +273,18 @@ nav#masthead {
   color: #6f6f6f;
   display: none;
   height: auto;
-  padding-top: 20px;
+  padding: 25px 0 50px 0;
+  position: relative;
+  
   
   .subnav-block {
     display: none;
+    margin: 0 0 0 100px;
     
     &.active {
       display: block;
+      margin: 0;
+      transition: margin 0.4s ease;
     }
   }
   
@@ -326,18 +344,27 @@ nav#masthead {
     }
   }
   
-  .close-drawer a {
-    color: #CCC;
-    display: block;
-    font-size: 22px;
-    text-align: center;
-    margin-top: 10px;
-    padding: 5px 0;
-    transition: all 0.3s ease;
+  .close-drawer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    
+    a {
+      color: #CCC;
+      display: block;
+      font-size: 22px;
+      text-align: center;
+      margin-top: 10px;
+      padding: 5px 0;
+      transition: all 0.3s ease;
 
-    &:hover {
-      background: #dfdfdf;
-      color: rgb(0, 166, 250);
+      &:hover {
+        background: #dfdfdf;
+        color: rgb(0, 166, 250);
+      }
     }
   }
 }
@@ -405,7 +432,11 @@ nav#masthead {
   height: 65px;
   margin-bottom: 0;
   width: 100%;
-  z-index: 101;
+  z-index: 10;
+  
+  .container-fluid {
+    max-width: 1180px;
+  }
   
   .navbar-header {
     position: relative;
@@ -428,13 +459,46 @@ nav#masthead {
     top: 0px;
   }
   
-  .container-fluid {
-    max-width: 1180px;
+  .nav-caret-up {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-bottom: 5px solid #222;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+    }
+    
+    &:after {
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: 1px;
+      border-bottom: 4px solid #fdf7f7;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+    }
+  }
+  
+  .nav-caret-down {
+    &:before {
+      border-top: 5px solid #090101;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+    }
+    
+    &:after {
+      border-top: 4px solid #fdf7f7;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+    }
   }
 
-  #product-brand {
+  #secondary-nav-product {
     border-right: 1px solid #d6d6d6;
     color: #666;
+    display: inline-block;
     font-family: $font-secondary;
     font-size: 30px;
     font-weight: 400;
@@ -457,17 +521,24 @@ nav#masthead {
   
   #secondary-nav {
     margin-left: -33px; 
-    
+
     li.dropdown.open {
       position: static;
+      
+      a {
+        background: #f8f8f8;
+      }
 
       .dropdown-menu {
         background: #f8f8f8;
+        border-top: none;
         border-bottom: 1px solid #d8d8d8;
         box-shadow: none;
         display: table;
+        height: 55px !important; /* used to created the stretchy bounce on slideDown */
         min-width: auto;
         margin: 0;
+        overflow: hidden;
         padding: 0;
         left: 0;
         right: 0;
@@ -535,7 +606,13 @@ nav#masthead {
 }
 
 #slot-2 {
-  padding: 115px 0;
+  background: url(../images/screen-shots.png) no-repeat 700px bottom;
+  transition: background 0.3s ease;
+  padding: 155px 0;
+  
+  .offcanvas-img {
+    overflow: hidden;
+  }
   
   &.tech {
     background: none;
@@ -548,11 +625,10 @@ nav#masthead {
 }
 
 .nav-caret-down {
+  display: inline-block;
+  margin-top: -8px;
   position: relative;
-  display: block;
-  float: right;
-  margin-top: -12px;
-  margin-right: -5px;
+  vertical-align: middle;
   
   &:before {
     content: '';
@@ -576,11 +652,10 @@ nav#masthead {
 }
 
 .nav-caret-up {
+  display: inline-block;
+  margin-top: -8px;
   position: relative;
-  display: block;
-  float: right;
-  margin-top: -12px;
-  margin-right: -5px;
+  vertical-align: middle;
   
   &:before {
     content: '';
@@ -603,12 +678,11 @@ nav#masthead {
   }
 }
 
-.small-nav-caret-down {
+.small-drop .nav-caret-down {
+  display: inline-block;
+  margin-top: -6px;
   position: relative;
-  display: block;
-  float: right;
-  margin-top: -12px;
-  margin-right: -5px;
+  vertical-align: middle;
   
   &:before {
     content: '';
@@ -631,12 +705,11 @@ nav#masthead {
   }
 }
 
-.small-nav-caret-up {
+.small-drop .nav-caret-up {
+  display: inline-block;
+  margin-top: -6px;
   position: relative;
-  display: block;
-  float: right;
-  margin-top: -12px;
-  margin-right: -5px;
+  vertical-align: middle;
   
   &:before {
     content: '';
@@ -692,6 +765,10 @@ nav#masthead {
       margin-left: 25px;
     }
   }
+  
+  #slot-2 {
+    background: url(../images/screen-shots.png) no-repeat 600px bottom;
+  }
 }
 
 @media (max-width: 768px) {
@@ -732,6 +809,10 @@ nav#masthead {
   
   #nav-drawer {
     display: none !important;
+  }
+  
+  #slot-2 {
+    background: none;
   }
 
 }
