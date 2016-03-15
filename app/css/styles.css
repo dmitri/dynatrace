@@ -27,8 +27,7 @@
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  font-family: arial; }
+  -webkit-box-sizing: border-box; }
 
 body {
   background: white;
@@ -356,7 +355,7 @@ nav#masthead {
     text-transform: uppercase; }
   #hero h3 {
     font-size: 22px;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 75px; }
   #hero .cta-wrapper {
     border: 1px solid white;
