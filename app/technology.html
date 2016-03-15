@@ -6,189 +6,342 @@
   <title>Dynatrace AppMon</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="shortcut icon" href="images/favicon-32x32.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/apple-touch-icon-60x60.png">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jansy-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="secondary-tech">
-  <nav id="masthead" class="navbar navbar-default navbar-inverse navbar-fixed-top">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#dyna-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="index.html"><img src="images/logo.png" class="img-responsive" /></a>
-    </div>
 
-    <div class="collapse navbar-collapse" id="dyna-collapse">
-      <ul id="primary-nav" class="nav navbar-nav">
-        <li>
-          <a href="#" class="secondary-nav-toggle">
-            Offerings <span class="nav-caret-down drawer-indicator"></span>
-          </a>
-        </li>
-        <li><a href="#">Solutions <span class="nav-caret-down"></span></a></li>
-        <li><a href="#">Why Dynatrace? <span class="nav-caret-down"></span></a></li>
-      </ul>
-      <ul class="util-nav nav navbar-nav navbar-right">
-        <li><a href="#">Resources</a></li>
-        <li class="divider"><a href="#">|</a></li>
-        <li><a href="#">Languages <span class="small-nav-caret-down"></span></a></li>
-        <li id="search"><a href="#"><img src="images/icon-search.png" alt="Search Dynatrace" /></a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </nav>
-  
-  <nav id="nav-drawer">
-    <div class="container">
-      <div class="row">
-        <div class="ol-xs-12 col-sm-6 col-md-4 offering">
-          <a href="#">
-            <h2>appmon</h2>
-            <h3>Application Monitoring</h3>
-            <p>No gaps, no guessing, no boundaries - no problem.</p>
-          </a>
-        </div>
-        <div class="ol-xs-12 col-sm-6 col-md-4 offering">
-          <a href="#">
-          <h2>uem</h2>
-          <h3>User Experience Management</h3>
-          <p>Every click, every swipe, every time - know your customers.</p>
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 offering">
-          <a href="#">
-          <h2>synthetic</h2>
-          <h3>Synthetic Monitoring</h3>
-          <p>Test, measure, compare, improve - even before the first customer clicks.</p>
-          </a>
-        </div>
-        <div class="ol-xs-12 col-sm-6 col-md-4 offering">
-          <a href="#">
-          <h2>dcrum</h2>
-          <h3>Data Center Real-User Monitoring</h3>
-          <p>Network and Application Monitoring - unified.</p>
-          </a>
-        </div>
-        <div class="ol-xs-12 col-sm-6 col-md-4 offering">
-          <a href="#">
-          <h2>ruxit</h2>
-          <h3>All-in-One Performance Management</h3>
-          <p>Full stack availability and performance monitoring powered by artificial intelligence.</p>
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 offering">
-          <a href="#">
-          <h2>expert services</h2>
-          <h3>Expert Services</h3>
-          <p>Realistic end-to-end performance testing.</p>
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <a href="#" class="show-all">Show All Offerings <i class="fa fa-chevron-right"></i></a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 close-drawer">
-          <a href="#" class="secondary-nav-toggle"><i class="fa fa-chevron-up"></i></a>
-        </div>
-      </div>
+<body>
+
+  <div class="navmenu navmenu-default navmenu-fixed-right offcanvas">
+    <div class="offcanvas-logo clearfix" style='border-bottom: 1px solid #333;'>
+      <a href="#" class="pull-right offcanvas-close"><i class="fa fa-times"></i></a>
+      <a href="index.html"><img src="images/logo.png" class="img-responsive" style="width: 60%; padding: 15px;" /></a>
     </div>
-  </nav>
+    <ul class="nav navmenu-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle small-drop" data-toggle="dropdown">Offerings <span class="nav-caret-down"></span></a>
+        <ul class="dropdown-menu navmenu-nav">
+          <li><a href="#">AppMon</a></li>
+          <li><a href="#">uem</a></li>
+          <li><a href="#">synthetic</a></li>
+          <li><a href="#">dcrum</a></li>
+          <li><a href="#">ruxit</a></li>
+          <li><a href="#">expert services</a></li>
+          <li><a href="#">Show All Offerings</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle small-drop" data-toggle="dropdown">Solutions <span class="nav-caret-down"></span></a>
+        <ul class="dropdown-menu navmenu-nav">
+          <li><a href="#">Technologies</a></li>
+          <li><a href="#">Use Cases</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle small-drop" data-toggle="dropdown">Why Dynatrace? <span class="nav-caret-down"></span></a>
+        <ul class="dropdown-menu navmenu-nav">
+          <li><a href="#">Link</a></li>
+        </ul>
+      </li>
+      <li class="divider"></li>
+      <li><a href="#">Resources</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle small-drop" data-toggle="dropdown">Languages <span class="nav-caret-down"></span></a>
+        <ul class="dropdown-menu navmenu-nav" role="menu">
+          <li><a href="/en/index.html">English</a></li>
+          <li><a href="/fr/index.html">French</a></li>
+          <li><a href="/de/index.html">German</a></li>
+          <li><a href="/es/index.html">Spanish</a></li>
+          <li><a href="/it/index.html">Italian</a></li>
+          <li><a href="/zh/index.html">Chinese</a></li>
+          <li><a href="/ko/index.html">Korean</a></li>
+          <li><a href="/ja/index.html">Japanese</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
   
-  <nav id="secondary-nav-container" class="navbar navbar-default">
-    <div class="container-fluid">
+  <div class="sticky-parent">
+    <nav id="masthead" class="navbar navbar-default navbar-inverse sticky-header">
+      <div id="util-nav-responsive"></div>
       <div class="navbar-header">
-        <a id="secondary-nav-brand" href="index.html"><img src="images/logo-mark.png" /></a>
+        <button type="button" class="navbar-toggle" 
+                aria-expanded="false" 
+                data-toggle="offcanvas" 
+                data-target=".navmenu" 
+                data-canvas="body">
+          <span class="sr-only">Toggle navigation</span>
+          Menu
+        </button>
+        <a href="index.html"><img src="images/logo.png" class="img-responsive" /></a>
       </div>
 
-      <ul id="secondary-nav" class="nav navbar-nav">
-        <li id="product-brand">appmon</li>
-        <li><a href="#">Capabilities <span class="nav-caret-down"></span></a></li>
-        <li class="dropdown">
-          <a href="#" class="tertiary-tech-toggle dropdown-toggle" data-toggle="dropdown">
-            Technologies <span class="nav-caret-down"></span>
-          </a>
-          <div class="dropdown-menu">
-            <ul>
-              <li><a href="technology.html">Java</a></li>
-              <li><a href="#">PHP</a></li>
-              <li><a href="#">.NET</a></li>
-              <li><a href="#">Node.js</a></li>
-              <li><a href="#">Chef</a></li>
-              <li><a href="#">Puppet</a></li>
-              <li><a href="#">AWS</a></li>
-              <li><a href="#">Azure</a></li>
-              <li><a href="#">CloudFoundry</a></li>
-              <li class="pull-right"><a href="#">View All &nbsp; <i class="fa fa-chevron-right"></i></a></li>
+      <div class="collapse navbar-collapse" id="dyna-collapse">
+        <ul id="primary-nav" class="nav navbar-nav">
+          <li><a href="#nav-offerings">Offerings <span class="nav-caret-down"></span></a></li>
+          <li><a href="#nav-solutions">Solutions <span class="nav-caret-down"></span></a></li>
+          <li><a href="#nav-about">Why Dynatrace? <span class="nav-caret-down"></span></a></li>
+        </ul>
+        <ul class="util-nav nav navbar-nav navbar-right">
+          <li id="search-container">
+            <div id="wrap">
+              <form action="" autocomplete="on">
+                <input id="search" name="search" type="text" placeholder="Search Dynatrace...">
+                <input id="search_submit" value="Rechercher" type="submit">
+              </form>
+            </div>
+          </li>
+        </ul>
+        <ul id="util-nav-utils" class="util-nav nav navbar-nav navbar-right">
+          <li>
+              <a href="#">Resources</a>
+          </li>
+          <li class="divider"><a href="#">|</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle drop-pad small-drop" data-toggle="dropdown">
+              Languages <span class="nav-caret-down"></span>
+            </a>
+              <ul class="dropdown-menu lang-dropdown" role="menu">
+                <li><a href="/en/index.html">English</a></li>
+                <li><a href="/fr/index.html">French</a></li>
+                <li><a href="/de/index.html">German</a></li>
+                <li><a href="/es/index.html">Spanish</a></li>
+                <li><a href="/it/index.html">Italian</a></li>
+                <li><a href="/zh/index.html">Chinese</a></li>
+                <li><a href="/ko/index.html">Korean</a></li>
+                <li><a href="/ja/index.html">Japanese</a></li>
             </ul>
-          </div>
-        </li>
-        <li><a href="#">How to Buy</a></li>
-      </ul>
-      <ul class="util-nav nav navbar-nav navbar-right">
-        <li><a href="#" class="cta">Free Trial!</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div id="hero" class="tech java">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h1><strong>Java</strong> Monitoring</h1>
-        </div>
-      </div>
-    </div>
-  </div>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </nav>
   
-  <div id="slot-2" class="slot tech java">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-5 col-lg-5">
-          <h1><strong>Java</strong> for appmon</h1>
-          <p>
-            Ruxit full stack monitoring delivers complete performance
-            metrics for your web application. With zero manual configuration,
-            out-of-the-box dashboards to show you performance data, SQL statements,
-            and code level insights. They're also completely customizable. (That's pretty easy, too.)
-          </p>
+    <nav id="nav-drawer">
+      <div id="subnav-offerings" class="active subnav-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 offering subnavitem">
+              <a href="#">
+                <h2>appmon</h2>
+                <h3>Application Monitoring</h3>
+                <p>No gaps, no guessing, no boundaries - no problem.</p>
+              </a>
+            </div>
+            <div class="ol-xs-12 col-sm-6 col-md-4 offering subnavitem">
+              <a href="#">
+              <h2>uem</h2>
+              <h3>User Experience Management</h3>
+              <p>Every click, every swipe, every time - know your customers.</p>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 offering subnavitem">
+              <a href="#">
+              <h2>synthetic</h2>
+              <h3>Synthetic Monitoring</h3>
+              <p>Test, measure, compare, improve - even before the first customer clicks.</p>
+              </a>
+            </div>
+            <div class="ol-xs-12 col-sm-6 col-md-4 offering subnavitem">
+              <a href="#">
+              <h2>dcrum</h2>
+              <h3>Data Center Real-User Monitoring</h3>
+              <p>Network and Application Monitoring - unified.</p>
+              </a>
+            </div>
+            <div class="ol-xs-12 col-sm-6 col-md-4 offering subnavitem">
+              <a href="#">
+              <h2>ruxit</h2>
+              <h3>All-in-One Performance Management</h3>
+              <p>Full stack availability and performance monitoring powered by artificial intelligence.</p>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 offering subnavitem">
+              <a href="#">
+              <h2>expert services</h2>
+              <h3>Expert Services</h3>
+              <p>Realistic end-to-end performance testing.</p>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <a href="#" class="action">Show All Offerings <i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-12 col-md-5 col-lg-5 pull-right">
-          <img src="images/java-logo-computer.png" 
-                class="img-responsive center-block" 
-                style="padding-top: 15%;">
+      </div>
+      <div id="subnav-solutions" class="subnav-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 offering subnavitem">
+              <a href="#">
+                <h2>Technologies</h2>
+                <h3>Subhead</h3>
+                <p>Descriptive text for this section.</p>
+                <div class="action">See All Technologies <i class="fa fa-chevron-right"></i></div>
+              </a>
+            </div>
+            <div class="ol-xs-12 col-sm-6 offering subnavitem">
+              <a href="#">
+              <h2>Use Cases</h2>
+              <h3>Subhead</h3>
+              <p>Descriptive text for this section.</p>
+              <div class="action">See All Use Cases <i class="fa fa-chevron-right"></i></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="subnav-about" class="subnav-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 offering subnavitem">
+              <a href="#">
+                <h2>About Us</h2>
+                <h3>Subhead</h3>
+                <p>Descriptive text for this section.</p>
+              </a>
+            </div>
+            <div class="ol-xs-12 col-sm-6 offering subnavitem">
+              <a href="#">
+              <h2>Expertise</h2>
+              <h3>Subhead</h3>
+              <p>Descriptive text for this section.</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="close-drawer">
+        <a href="#"><i class="fa fa-chevron-up"></i></a>
+      </div>
+    </nav>
+  </div><!-- sticky parent -->
+  
+  <div class="sticky-parent">
+    <nav id="secondary-nav-container" class="navbar navbar-default sticky-header secondary">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" 
+              data-toggle="collapse" 
+              data-target="#secondary-nav-menu" 
+              aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="secondary-nav-brand" href="index.html" class="clearfix"><img src="images/logo-mark.png" /></a>
+        <div id="secondary-nav-product">appmon</div>
+      </div>
+    
+      <div class="collapse navbar-collapse" id="secondary-nav-menu">
+        <ul id="secondary-nav" class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Capabilities <span class="nav-caret-down"></span>
+            </a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="#">TBD</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Technologies <span class="nav-caret-down"></span>
+            </a>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="technology.html">Java</a></li>
+                <li><a href="#">PHP</a></li>
+                <li><a href="#">.NET</a></li>
+                <li><a href="#">Node.js</a></li>
+                <li><a href="#">Chef</a></li>
+                <li><a href="#">Puppet</a></li>
+                <li><a href="#">AWS</a></li>
+                <li><a href="#">Azure</a></li>
+                <li><a href="#">CloudFoundry</a></li>
+                <li class="pull-right"><a href="#">View All &nbsp; <i class="fa fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">How to Buy</a></li>
+        </ul>
+        <ul class="util-nav nav navbar-nav navbar-right">
+          <li><a href="#" class="cta">Free Trial!</a></li>
+        </ul>
+      </div>
+    </nav>
+  
+    <div id="hero" class="tech java">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1><strong>Java</strong> Monitoring</h1>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <hr/>
-  <div id="slot-3" class="slot border tech java" style="padding: 30px 0 100px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-5 col-lg-5">
-          <img src="images/java-logo.png" class="img-responsive center-block" style="padding-top: 30%; width: 75%;">
-        </div>
-        <div class="col-sm-12 col-md-5 col-lg-5 pull-right">
-          <h1>Start end-to-end monitoring in just under <strong>5 minutes</strong></h1>
-          <p>
-            Ruxit full stack monitoring delivers complete performance metrics for your
-            web application. With zero manual configuration, out-of-the-box dashboards
-            show you performance data, SQL statements, and code level insights. They're also
-            completely customizable. (That's pretty easy too.)
-          </p>
+  
+    <div id="slot-2" class="slot tech java">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-5 col-lg-5">
+            <h1><strong>Java</strong> for appmon</h1>
+            <p>
+              Ruxit full stack monitoring delivers complete performance
+              metrics for your web application. With zero manual configuration,
+              out-of-the-box dashboards to show you performance data, SQL statements,
+              and code level insights. They're also completely customizable. (That's pretty easy, too.)
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-5 col-lg-5 pull-right">
+            <img src="images/java-logo-computer.png" 
+                  class="img-responsive center-block" 
+                  style="padding-top: 15%;">
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <hr/>
+    <div id="slot-3" class="slot border tech java" style="padding: 30px 0 100px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-5 col-lg-5">
+            <img src="images/java-logo.png" class="img-responsive center-block" style="padding-top: 30%; width: 75%;">
+          </div>
+          <div class="col-sm-12 col-md-5 col-lg-5 pull-right">
+            <h1>Start end-to-end monitoring in just under <strong>5 minutes</strong></h1>
+            <p>
+              Ruxit full stack monitoring delivers complete performance metrics for your
+              web application. With zero manual configuration, out-of-the-box dashboards
+              show you performance data, SQL statements, and code level insights. They're also
+              completely customizable. (That's pretty easy too.)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- #sticky parent -->
 
   <script src="js/jquery-1.10.2-min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/jansy-bootstrap.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/jquery.sticky-kit.min.js"></script>
   <script src="js/application.js"></script>
 </body>
 </html>
