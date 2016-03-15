@@ -409,7 +409,9 @@ nav#masthead {
   background: url(../images/hero-appmon.jpg) no-repeat center center;
   background-size: cover;
   padding: 160px 0;
+  position: relative;
   text-align: center;
+  z-index: 99;
   
   h1, h3 {
     color: rgb(255,255,255);
@@ -487,14 +489,14 @@ nav#masthead {
       img {
         float: left;
         margin-top: 3px;
-        margin-top: -9999px;
+        margin-top: -55px;
         position: relative;
         width: 34px;
         transition: all 0.3s ease;
       
         &.sticky-logo {
           margin-top: -6px;
-          z-index: 1000;
+          z-index: 800;
         }
       }
     }
