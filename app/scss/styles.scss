@@ -1,7 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300italic,100,500,700);
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600);
 $font-stack: 'Roboto', sans-serif;
-$font-secondary: 'Titillium Web', sans-serif;;
+$font-secondary: 'Titillium Web', sans-serif;
+$dyna-blue: #00a6fa;
+$border-color: #d8d8d8;
+$dyna-gray: #d8d8d8;
 
 /* utility classes */
 .no-gutter > [class*='col-'] {
@@ -63,7 +66,7 @@ body.secondary-tech {
 }
 
 a, a:visited, a:focus {
-  color: #00a6fa;
+  color: $dyna-blue;
   outline: 0;
 }
 
@@ -254,27 +257,83 @@ nav#masthead {
 /* in between widths */
 #util-nav-responsive {
   background: #222;
-  border-bottom: 1px solid #333;
   height: 0;
   transition: all 0.3s ease;
 }
 
 .navmenu-fixed-right.navmenu-default {
-  background: #111;
+  background: #333;
   border: none;
+  overflow-y: visible;
+  
+  .offcanvas-logo {
+    background: #222;
+    height: 64px;
+  }
+  
+  li.dropdown.open {
+    a {
+      background: #333;
+    }
+    
+    .dropdown-menu {
+      background: #333;
+      
+      li>a {
+        border-top: 0;
+      }
+    }
+    
+    ul {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      
+      li > a {
+        border-bottom: 0;
+        color: $dyna-blue;
+        font-family: $font-secondary;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: -.5px;
+        padding: 5px 0 5px 10px;
+        text-transform: none;
+        
+        &:hover {
+          background: #444;
+        }
+        
+        &.action {
+          border: 1px solid $dyna-blue;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          padding: 10px 0 10px 10px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
 
   .navmenu-nav>li>a, 
-  .navbar-offcanvas .navmenu-nav>li>a {
+  .navbar-offcanvas .navmenu-nav>li>a,
+   .navbar-offcanvas .navmenu-nav>li>a:focus{
+    border-bottom: 1px solid #444;
+    color: rgba(255,255,255,0.9);
+    font-size: 11px;
+    font-weight: bold;
+    padding: 20px 0;
+    margin: 0 40px;
     text-transform: uppercase;
     
     &:hover {
-      background: #000;
-      color: #FAFAFA;
+      color: #FFF;
+      font-weight: bold;
     }
   }
   
   i.fa-times {
-    background: #333;
     color: rgba(255,255,255,0.5); 
     font-weight: bold;
     padding: 23px 30px 24px 30px;
@@ -296,7 +355,7 @@ nav#masthead {
   height: auto;
   padding: 25px 0 50px 0;
   position: relative;
-  
+  z-index: 101;
   
   .subnav-block {
     display: none;
@@ -312,32 +371,32 @@ nav#masthead {
   .offering {
     box-sizing: border-box;
     padding-right: 100px;
-    
+
+    h2 {
+      color: rgb(0, 166, 250);
+      border-bottom: 1px solid #CCC;
+      font-family: $font-secondary;
+      padding-bottom: 10px;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      color: #888;
+      font-size: 16px;
+      line-height: 1.1;
+      margin-top: 10px;
+    }
+
+    p {
+      color: #888;
+      box-sizing: border-box;
+      font-size: 13px;
+      font-style: italic;
+    }
+
     a {
       text-decoration: none;
       transition: all 0.5s ease;
-      
-      h2 {
-        color: rgb(0, 166, 250);
-        border-bottom: 1px solid #CCC;
-        font-family: $font-secondary;
-        padding-bottom: 10px;
-        margin-bottom: 5px;
-      }
-  
-      h3 {
-        color: #888;
-        font-size: 16px;
-        line-height: 1.1;
-        margin-top: 10px;
-      }
-  
-      p {
-        color: #888;
-        box-sizing: border-box;
-        font-size: 13px;
-        font-style: italic;
-      }
       
       &:hover {
         background: rgb(255,255,255);
@@ -346,13 +405,13 @@ nav#masthead {
   }
 
   .action {
-    border: 1px solid #00a6fa;
-    color: #00a6fa;
+    border: 1px solid $dyna-blue;
+    color: $dyna-blue;
     display: inline-block;
     font-style: normal;
     padding: 10px 25px;
     margin: 30px 0 0 0;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     
     i {
       font-size: 11px;
@@ -360,7 +419,7 @@ nav#masthead {
     }
     
     &:hover {
-     background: #00a6fa;
+     background: $dyna-blue;
      color: rgb(255,255,255);
      text-decoration: none;
     }
@@ -377,6 +436,24 @@ nav#masthead {
     
     .action {
       margin: 20px 0 5px 0;
+    }
+  }
+  
+  #subnav-about {
+    .subnavitem {
+      a {
+        color: #666;
+        display: block;
+        padding: 10px 0;
+        transition: all 0.1s ease;
+        
+        &:hover {
+          background: #FFF;
+          color: #222;
+          font-weight: bold;
+          padding-left: 5px;
+        }
+      }
     }
   }
   
@@ -584,7 +661,7 @@ nav#masthead {
       .dropdown-menu {
         background: #f8f8f8;
         border-top: none;
-        border-bottom: 1px solid #d8d8d8;
+        border-bottom: 1px solid $border-color;
         box-shadow: none;
         display: table;
         height: 55px !important; /* used to created the stretchy bounce on slideDown */
@@ -857,7 +934,7 @@ nav#masthead {
       @include border-radius(0);
       letter-spacing: 1px;
       margin-right: 0;
-      padding: 25px 24px 23px 24px;
+      padding: 24px 24px 23px 24px;
       position: absolute;
       text-transform: uppercase;
       top: 0;
@@ -893,32 +970,54 @@ nav#masthead {
         transition: all 0.3s ease;
         
         &:hover {
-          background: #d8d8d8;
+          background: $dyna-gray;
         }
       }
     }
     #secondary-nav {
       margin-left: 0;
       li > a {
-        padding: 22px 35px 22px 8px;
+        background: none;
+        padding: 25px;
         text-align: center;
       }
       
-      li.dropdown.open .dropdown-menu {
-        background: none;
-        height: auto !important;
+      li.dropdown.open {
+        a {
+          background: none;
+        }
+        .dropdown-menu {
+          background: none;
+          border-top: 1px solid $border-color;
+          border-bottom: none;
+          height: auto !important;
         
-        li {
-          border-top: 1px solid #d8d8d8;
-          box-sizing: border-box;
-          float: left;
-          width: 50%;
+          li {
+            border-bottom: 1px solid $border-color;
+            box-sizing: border-box;
+            float: left;
+            width: 50%;
           
-          &:nth-child(even) {
-            border-left: 1px solid #d8d8d8;
-          }
-          a {
-            
+            a:hover {
+              background: none;
+            }
+          
+            &:nth-child(odd) {
+              border-right: 1px solid $border-color;
+            }
+          
+            &:last-child {
+              border-top: 1px solid $border-color;
+              float: none !important;
+              margin-top: -1px;
+              width: 100% !important;
+              a {
+                color: #666;
+                font-size: 14px;
+                font-weight: bold;
+                text-transform: uppercase;
+              }
+            }
           }
         }
       }
@@ -937,8 +1036,7 @@ nav#masthead {
       a.cta {
         @include border-radius(0);
         margin-top: 0;
-        margin-left: 0px;
-        margin-right: -5px;
+        margin-left: 15px;
         padding-top: 20px;
         padding-bottom: 20px;
         text-align: center;

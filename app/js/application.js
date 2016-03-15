@@ -61,19 +61,18 @@ $( document ).ready(function() {
     })(this));
 
   }).call(this);
-  
-  // nav functions
 
+  $nav_set = $('#primary-nav li a'); // get the nav
+  $nav_drawer = $('#nav-drawer'); // get the nav drawer
+  $sub_nav = $('.subnav-block')    // get all the subnav blocks in the drawer
+
+  // nav functions
   $( "#primary-nav li a" ).on( "click", function(e) {
     e.preventDefault();
 
     // if user has scrolled deep in to the page, get back to the top
     $('html,body').animate({ scrollTop: 0 }, 'fast');
-    
-    $nav_set = $('#primary-nav li a'); // get the nav
-    $nav_drawer = $('#nav-drawer'); // get the nav drawer
-    $sub_nav = $('.subnav-block')    // get all the subnav blocks in the drawer
-    
+
     // remove all active classes
     $($nav_set).removeClass('active');
     
@@ -86,10 +85,7 @@ $( document ).ready(function() {
     // show the subnav with the same index and add the active class
     $selected_subnav = $sub_nav.get($selected_index);
     $selected_subnav_height = $($selected_subnav).height() + 75;
-    // animate the height of the container
-    
-    
-    
+
     // if user is clicking a nav link already open and set, close it
     if($(this).find('span').hasClass('nav-caret-up')) {
       drawer_toggle($nav_drawer);   // close the drawer
@@ -167,6 +163,22 @@ $( document ).ready(function() {
   $('#secondary-nav li.dropdown a').on('click', function(e){
     toggle_caret(this);
   });
+
+
+  // hide the off canvas menu if wider than 768px
+  var hide_off_canvas_for_wide;
+  function testWinSize(){
+    hide_off_canvas_for_wide = $(window).width() > 768; // BOOLEAN
+
+    if(hide_off_canvas_for_wide){
+      if($('.offcanvas').hasClass('canvas-slid')) {
+        $('#masthead .navbar-toggle').click();
+      }
+    }
+  }
+
+  $(window).on("load resize", testWinSize);
+
 });
 
 drawer_toggle = function($drawer) {
