@@ -165,6 +165,11 @@ $( document ).ready(function() {
   $('#secondary-nav li.dropdown a').on('click', function(e){
     toggle_caret(this);
   });
+  
+  // stop the closing and leaving of the menu on off canvas when on mobile
+  $(document).on('click', '.navmenu-fixed-right.navmenu-default .dropdown-menu', function (e) {
+      e.stopPropagation();
+   });
 
   // hide the off canvas menu if wider than 768px
   var hide_off_canvas_for_wide;
