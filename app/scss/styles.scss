@@ -273,6 +273,8 @@ nav#masthead {
   li.dropdown.open {
     a {
       background: #333;
+      color: #fff;
+      transition: all 0.3s ease;
     }
     
     .dropdown-menu {
@@ -320,7 +322,7 @@ nav#masthead {
    .navbar-offcanvas .navmenu-nav>li>a:focus{
     border-bottom: 1px solid #444;
     color: rgba(255,255,255,0.9);
-    font-size: 11px;
+    font-size: 13px;
     font-weight: bold;
     padding: 20px 0;
     margin: 0 40px;
@@ -354,7 +356,7 @@ nav#masthead {
   height: auto;
   padding: 25px 0 50px 0;
   position: relative;
-  z-index: 101;
+  z-index: 10;
   
   .subnav-block {
     display: none;
@@ -487,6 +489,10 @@ nav#masthead {
   padding: 160px 0;
   position: relative;
   text-align: center;
+  
+  .home & {
+    z-index: 99;
+  }
 
   h1, h3 {
     color: rgb(255,255,255);
@@ -535,10 +541,6 @@ nav#masthead {
       }
     }
   }
-}
-
-.home #hero {
-    z-index: 99;
 }
 
 #secondary-nav-container {
@@ -752,11 +754,15 @@ nav#masthead {
   margin-top: 65px;
 }
 
-.nav-caret-down {
+.nav-caret {
   display: inline-block;
   margin-top: -8px;
   position: relative;
   vertical-align: middle;
+}
+
+.nav-caret-down {
+  @extend .nav-caret;
   
   &:before {
     content: '';
@@ -780,10 +786,7 @@ nav#masthead {
 }
 
 .nav-caret-up {
-  display: inline-block;
-  margin-top: -8px;
-  position: relative;
-  vertical-align: middle;
+  @extend .nav-caret;
   
   &:before {
     content: '';
@@ -807,10 +810,8 @@ nav#masthead {
 }
 
 .small-drop .nav-caret-down {
-  display: inline-block;
+  @extend .nav-caret;
   margin-top: -6px;
-  position: relative;
-  vertical-align: middle;
   
   &:before {
     content: '';
@@ -834,10 +835,8 @@ nav#masthead {
 }
 
 .small-drop .nav-caret-up {
-  display: inline-block;
+  @extend .nav-caret;
   margin-top: -6px;
-  position: relative;
-  vertical-align: middle;
   
   &:before {
     content: '';
@@ -870,7 +869,9 @@ nav#masthead {
     position: absolute;
     z-index: 10;
     top: -19px;
-    right: 23px;
+    right: 0px;
+    
+    li > a
   }
 }
 
@@ -964,12 +965,20 @@ nav#masthead {
         color: #555;
         font-size: 20px;
         margin: 0;
-        padding: 18px 20px;
+        padding: 18px 33px;
         text-align: center;
         transition: all 0.3s ease;
         
+        i {
+          transition: all 0.3s ease;
+        }
+        
         &:hover {
           background: $dyna-gray;
+        }
+        
+        &.collapsed i {
+          transform: rotate(180deg);
         }
       }
     }

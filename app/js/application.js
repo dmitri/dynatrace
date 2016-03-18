@@ -5,6 +5,8 @@ $( document ).ready(function() {
     var reset_scroll;
 
     $(function() {
+      // set the sticky headers and behavior when 
+      // stuck and unstuck of the secondary
       return $(".sticky-header, .secondary").stick_in_parent({
         parent: ".sticky-parent"
       }).on("sticky_kit:stick", function(e) {
@@ -137,13 +139,13 @@ $( document ).ready(function() {
   
   /* set up the sticky headers */
 
-   // ADD SLIDEDOWN ANIMATION TO DROPDOWN //
+   // add slidedown animation to Bootstrap dropdown //
   $('.dropdown').on('show.bs.dropdown', function(e){
     $(this).find(".nav-caret-down").removeClass('nav-caret-down').addClass('nav-caret-up');
     $(this).find('.dropdown-menu').first().stop(true, true).slideDown('fast');
   });
 
-  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  // add slideup animation to Bootstrap dropdown //
   $('.dropdown').on('hide.bs.dropdown', function(e){
     $(this).find(".nav-caret-up").removeClass('nav-caret-up').addClass('nav-caret-down');
     $(this).find('.dropdown-menu').first().stop(true, true).hide();
@@ -164,7 +166,6 @@ $( document ).ready(function() {
     toggle_caret(this);
   });
 
-
   // hide the off canvas menu if wider than 768px
   var hide_off_canvas_for_wide;
   function testWinSize(){
@@ -177,33 +178,40 @@ $( document ).ready(function() {
     }
   }
 
+  // check on load and resize if the offcanvas menu is behaving
   $(window).on("load resize", testWinSize);
 
 });
 
+
+// open close the secondary nav drawer
 drawer_toggle = function($drawer) {
   $drawer.slideToggle('fast', function() { 
     $drawer.toggleClass('open');
   });
 }
 
+// explicit close of secondary nav drawer
 close_drawer = function() {
   $drawer = $('#nav-drawer');
   $drawer.slideUp().toggleClass('open');
   reset_nav();
 }
 
+// function to toggle the carets!
 toggle_caret = function($el) {
   $caret = $($el).find('span');
   $caret.toggleClass('nav-caret-down').toggleClass('nav-caret-up');
 }
 
+// function to reset the primary nav carets
 reset_nav = function() {
   $nav_set = $("#primary-nav li a");
   $nav_set.removeClass('active');
   $nav_set.find('span.nav-caret-up').removeClass('nav-caret-up').addClass('nav-caret-down');
 }
 
+// explicit close of offcanvas menu
 close_off_canvas = function() {
   $('#masthead .navbar-toggle').click();
 }
