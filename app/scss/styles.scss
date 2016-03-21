@@ -252,8 +252,8 @@ nav#masthead {
   }
 }
 
-/* used to provide a background the resources / languages dropdown
-/* in between widths */
+/* backdrop row used to provide a space for the resources / languages dropdown
+/* in between 1099 and 768 */
 #util-nav-responsive {
   background: #222;
   height: 0;
@@ -265,16 +265,53 @@ nav#masthead {
   border: none;
   overflow-y: visible;
   
+  .navbar-toggle {
+    padding: 23px;
+    margin-right: 0;
+    
+    &:hover {
+      background: #000;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .icon-bar {
+    background: rgba(255,255,255,0.8);
+    position:relative;
+    
+      &:nth-of-type(1) {
+        transform: rotate(45deg);
+      }
+    
+      &:nth-of-type(2) {
+        top: -6px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  // this fixes the jasny offcanvas dropdown bug
+  // in which the menu closes when exploring or
+  // toggling dropdowns
   .navmenu-nav.dropdown-menu { position:relative; }
   .dropdown-backdrop { position: relative; }
+  /* end */
+  
   
   .offcanvas-logo {
     background: #222;
     height: 64px;
     
     img {
-      padding: 15px;
+      padding: 17px 15px 15px 15px;
       width: 60%;
+    }
+  }
+  
+  li.dropdown.first a {
+    border: none;
+    
+    &:focus {
+      border:none;
     }
   }
   
@@ -282,7 +319,7 @@ nav#masthead {
     a {
       background: #333;
       color: #fff;
-      transition: all 0.3s ease;
+      transition: none;
     }
     
     .dropdown-menu {
@@ -292,24 +329,32 @@ nav#masthead {
         border-top: 0;
       }
     }
-    
+
     ul {
-      margin-bottom: 0;
+      margin-bottom: 10px;
       padding-bottom: 0;
-      
+
       li > a {
-        border-bottom: 0;
-        color: $dyna-blue;
-        font-family: $font-secondary;
-        font-size: 20px;
+        color: rgba(255,255,255,0.9);
+        font-size: 16px;
         font-weight: 400;
-        letter-spacing: -.5px;
-        padding: 5px 0 5px 10px;
+        padding: 5px 0;
         text-transform: none;
         
         &:hover {
           background: #444;
         }
+      }
+    }
+    
+    /* blue offerings only */
+    ul.offerings {
+      li > a {
+        color: $dyna-blue;
+        font-family: $font-secondary;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: -.5px;
         
         &.action {
           border: 1px solid $dyna-blue;
@@ -317,7 +362,7 @@ nav#masthead {
           font-weight: 600;
           letter-spacing: 1px;
           margin-top: 15px;
-          margin-bottom: 15px;
+          margin-bottom: 20px;
           padding: 10px 0 10px 10px;
           text-transform: uppercase;
         }
@@ -325,10 +370,9 @@ nav#masthead {
     }
   }
 
-  .navmenu-nav>li>a, 
-  .navbar-offcanvas .navmenu-nav>li>a,
-   .navbar-offcanvas .navmenu-nav>li>a:focus{
-    border-bottom: 1px solid #444;
+  .navmenu-nav>li>a,
+  .navmenu-nav>li>a:focus{
+    border-top: 1px solid #444;
     color: rgba(255,255,255,0.9);
     font-size: 16px;
     font-weight: bold;
@@ -342,19 +386,22 @@ nav#masthead {
     }
   }
   
-  i.fa-times {
-    color: rgba(255,255,255,0.5); 
-    font-weight: bold;
-    padding: 23px 30px 24px 30px;
-    text-decoration: none;
-    transition: all 0.3s ease;
+  li.utility {
     
-    &:hover {
-      background: #000;
-      color: rgba(255,255,255,0.9); 
+    &.first {
+      margin-top: 30px;
+      a {
+        border-top: none;
+      }
+    }
+    a,
+    a:focus {
+      font-size: 14.5px;
+      font-weight: normal;
+      padding: 12px 0;
+      text-transform: none;
     }
   }
-  
 }
 
 #nav-drawer {

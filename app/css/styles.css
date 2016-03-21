@@ -185,8 +185,8 @@ nav#masthead {
         nav#masthead .util-nav.navbar-nav.navbar-right .lang-dropdown li > a:hover {
           background: #353738; }
 
-/* used to provide a background the resources / languages dropdown
-/* in between widths */
+/* backdrop row used to provide a space for the resources / languages dropdown
+/* in between 1099 and 768 */
 #util-nav-responsive {
   background: #222;
   height: 0;
@@ -195,7 +195,22 @@ nav#masthead {
 .navmenu-fixed-right.navmenu-default.offcanvas {
   background: #333;
   border: none;
-  overflow-y: visible; }
+  overflow-y: visible;
+  /* end */ }
+  .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle {
+    padding: 23px;
+    margin-right: 0; }
+    .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle:hover {
+      background: #000;
+      color: rgba(255, 255, 255, 0.9); }
+    .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle .icon-bar {
+      background: rgba(255, 255, 255, 0.8);
+      position: relative; }
+      .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle .icon-bar:nth-of-type(1) {
+        transform: rotate(45deg); }
+      .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle .icon-bar:nth-of-type(2) {
+        top: -6px;
+        transform: rotate(-45deg); }
   .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav.dropdown-menu {
     position: relative; }
   .navmenu-fixed-right.navmenu-default.offcanvas .dropdown-backdrop {
@@ -204,43 +219,51 @@ nav#masthead {
     background: #222;
     height: 64px; }
     .navmenu-fixed-right.navmenu-default.offcanvas .offcanvas-logo img {
-      padding: 15px;
+      padding: 17px 15px 15px 15px;
       width: 60%; }
-  .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open a {
-    background: #333;
-    color: #fff;
-    transition: all 0.3s ease; }
-  .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open .dropdown-menu {
-    background: #333; }
-    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open .dropdown-menu li > a {
-      border-top: 0; }
-  .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul {
-    margin-bottom: 0;
-    padding-bottom: 0; }
-    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a {
-      border-bottom: 0;
+  .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.first a {
+    border: none; }
+    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.first a:focus {
+      border: none; }
+  .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open {
+    /* blue offerings only */ }
+    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open a {
+      background: #333;
+      color: #fff;
+      transition: none; }
+    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open .dropdown-menu {
+      background: #333; }
+      .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open .dropdown-menu li > a {
+        border-top: 0; }
+    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul {
+      margin-bottom: 10px;
+      padding-bottom: 0; }
+      .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 16px;
+        font-weight: 400;
+        padding: 5px 0;
+        text-transform: none; }
+        .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a:hover {
+          background: #444; }
+    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul.offerings li > a {
       color: #00a6fa;
       font-family: "Titillium Web", sans-serif;
       font-size: 20px;
       font-weight: 400;
-      letter-spacing: -.5px;
-      padding: 5px 0 5px 10px;
-      text-transform: none; }
-      .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a:hover {
-        background: #444; }
-      .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a.action {
+      letter-spacing: -.5px; }
+      .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul.offerings li > a.action {
         border: 1px solid #00a6fa;
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 1px;
         margin-top: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         padding: 10px 0 10px 10px;
         text-transform: uppercase; }
   .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav > li > a,
-  .navmenu-fixed-right.navmenu-default.offcanvas .navbar-offcanvas .navmenu-nav > li > a,
-  .navmenu-fixed-right.navmenu-default.offcanvas .navbar-offcanvas .navmenu-nav > li > a:focus {
-    border-bottom: 1px solid #444;
+  .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav > li > a:focus {
+    border-top: 1px solid #444;
     color: rgba(255, 255, 255, 0.9);
     font-size: 16px;
     font-weight: bold;
@@ -248,19 +271,19 @@ nav#masthead {
     margin: 0 40px;
     text-transform: uppercase; }
     .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav > li > a:hover,
-    .navmenu-fixed-right.navmenu-default.offcanvas .navbar-offcanvas .navmenu-nav > li > a:hover,
-    .navmenu-fixed-right.navmenu-default.offcanvas .navbar-offcanvas .navmenu-nav > li > a:focus:hover {
+    .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav > li > a:focus:hover {
       color: #FFF;
       font-weight: bold; }
-  .navmenu-fixed-right.navmenu-default.offcanvas i.fa-times {
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: bold;
-    padding: 23px 30px 24px 30px;
-    text-decoration: none;
-    transition: all 0.3s ease; }
-    .navmenu-fixed-right.navmenu-default.offcanvas i.fa-times:hover {
-      background: #000;
-      color: rgba(255, 255, 255, 0.9); }
+  .navmenu-fixed-right.navmenu-default.offcanvas li.utility.first {
+    margin-top: 30px; }
+    .navmenu-fixed-right.navmenu-default.offcanvas li.utility.first a {
+      border-top: none; }
+  .navmenu-fixed-right.navmenu-default.offcanvas li.utility a,
+  .navmenu-fixed-right.navmenu-default.offcanvas li.utility a:focus {
+    font-size: 14.5px;
+    font-weight: normal;
+    padding: 12px 0;
+    text-transform: none; }
 
 #nav-drawer {
   background: #f8f8f8;
