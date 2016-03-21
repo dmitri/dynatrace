@@ -260,14 +260,22 @@ nav#masthead {
   transition: all 0.3s ease;
 }
 
-.navmenu-fixed-right.navmenu-default {
+.navmenu-fixed-right.navmenu-default.offcanvas {
   background: #333;
   border: none;
   overflow-y: visible;
   
+  .navmenu-nav.dropdown-menu { position:relative; }
+  .dropdown-backdrop { position: relative; }
+  
   .offcanvas-logo {
     background: #222;
     height: 64px;
+    
+    img {
+      padding: 15px;
+      width: 60%;
+    }
   }
   
   li.dropdown.open {

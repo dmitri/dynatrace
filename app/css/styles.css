@@ -192,25 +192,32 @@ nav#masthead {
   height: 0;
   transition: all 0.3s ease; }
 
-.navmenu-fixed-right.navmenu-default {
+.navmenu-fixed-right.navmenu-default.offcanvas {
   background: #333;
   border: none;
   overflow-y: visible; }
-  .navmenu-fixed-right.navmenu-default .offcanvas-logo {
+  .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav.dropdown-menu {
+    position: relative; }
+  .navmenu-fixed-right.navmenu-default.offcanvas .dropdown-backdrop {
+    position: relative; }
+  .navmenu-fixed-right.navmenu-default.offcanvas .offcanvas-logo {
     background: #222;
     height: 64px; }
-  .navmenu-fixed-right.navmenu-default li.dropdown.open a {
+    .navmenu-fixed-right.navmenu-default.offcanvas .offcanvas-logo img {
+      padding: 15px;
+      width: 60%; }
+  .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open a {
     background: #333;
     color: #fff;
     transition: all 0.3s ease; }
-  .navmenu-fixed-right.navmenu-default li.dropdown.open .dropdown-menu {
+  .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open .dropdown-menu {
     background: #333; }
-    .navmenu-fixed-right.navmenu-default li.dropdown.open .dropdown-menu li > a {
+    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open .dropdown-menu li > a {
       border-top: 0; }
-  .navmenu-fixed-right.navmenu-default li.dropdown.open ul {
+  .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul {
     margin-bottom: 0;
     padding-bottom: 0; }
-    .navmenu-fixed-right.navmenu-default li.dropdown.open ul li > a {
+    .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a {
       border-bottom: 0;
       color: #00a6fa;
       font-family: "Titillium Web", sans-serif;
@@ -219,9 +226,9 @@ nav#masthead {
       letter-spacing: -.5px;
       padding: 5px 0 5px 10px;
       text-transform: none; }
-      .navmenu-fixed-right.navmenu-default li.dropdown.open ul li > a:hover {
+      .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a:hover {
         background: #444; }
-      .navmenu-fixed-right.navmenu-default li.dropdown.open ul li > a.action {
+      .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a.action {
         border: 1px solid #00a6fa;
         font-size: 14px;
         font-weight: 600;
@@ -230,9 +237,9 @@ nav#masthead {
         margin-bottom: 15px;
         padding: 10px 0 10px 10px;
         text-transform: uppercase; }
-  .navmenu-fixed-right.navmenu-default .navmenu-nav > li > a,
-  .navmenu-fixed-right.navmenu-default .navbar-offcanvas .navmenu-nav > li > a,
-  .navmenu-fixed-right.navmenu-default .navbar-offcanvas .navmenu-nav > li > a:focus {
+  .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav > li > a,
+  .navmenu-fixed-right.navmenu-default.offcanvas .navbar-offcanvas .navmenu-nav > li > a,
+  .navmenu-fixed-right.navmenu-default.offcanvas .navbar-offcanvas .navmenu-nav > li > a:focus {
     border-bottom: 1px solid #444;
     color: rgba(255, 255, 255, 0.9);
     font-size: 16px;
@@ -240,18 +247,18 @@ nav#masthead {
     padding: 20px 0;
     margin: 0 40px;
     text-transform: uppercase; }
-    .navmenu-fixed-right.navmenu-default .navmenu-nav > li > a:hover,
-    .navmenu-fixed-right.navmenu-default .navbar-offcanvas .navmenu-nav > li > a:hover,
-    .navmenu-fixed-right.navmenu-default .navbar-offcanvas .navmenu-nav > li > a:focus:hover {
+    .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav > li > a:hover,
+    .navmenu-fixed-right.navmenu-default.offcanvas .navbar-offcanvas .navmenu-nav > li > a:hover,
+    .navmenu-fixed-right.navmenu-default.offcanvas .navbar-offcanvas .navmenu-nav > li > a:focus:hover {
       color: #FFF;
       font-weight: bold; }
-  .navmenu-fixed-right.navmenu-default i.fa-times {
+  .navmenu-fixed-right.navmenu-default.offcanvas i.fa-times {
     color: rgba(255, 255, 255, 0.5);
     font-weight: bold;
     padding: 23px 30px 24px 30px;
     text-decoration: none;
     transition: all 0.3s ease; }
-    .navmenu-fixed-right.navmenu-default i.fa-times:hover {
+    .navmenu-fixed-right.navmenu-default.offcanvas i.fa-times:hover {
       background: #000;
       color: rgba(255, 255, 255, 0.9); }
 

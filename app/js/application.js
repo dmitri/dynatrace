@@ -4,19 +4,17 @@ $( document ).ready(function() {
   (function() {
     var reset_scroll;
 
-    $(function() {
-      // set the sticky headers and behavior when 
-      // stuck and unstuck of the secondary
-      return $(".sticky-header, .secondary").stick_in_parent({
-        parent: ".sticky-parent"
-      }).on("sticky_kit:stick", function(e) {
-        if($('#secondary-nav-container').hasClass('is_stuck')) {
-          $('#secondary-nav-brand img').addClass('sticky-logo');
-        }
-      })
-      .on("sticky_kit:unstick", function(e) {
-          $('#secondary-nav-brand img').removeClass('sticky-logo');
-      });
+    // set the sticky headers and behavior when 
+    // stuck and unstuck of the secondary
+    return $(".sticky-header, .secondary").stick_in_parent({
+      parent: ".sticky-parent"
+    }).on("sticky_kit:stick", function(e) {
+      if($('#secondary-nav-container').hasClass('is_stuck')) {
+        $('#secondary-nav-brand img').addClass('sticky-logo');
+      }
+    })
+    .on("sticky_kit:unstick", function(e) {
+        $('#secondary-nav-brand img').removeClass('sticky-logo');
     });
 
     reset_scroll = function() {
@@ -63,7 +61,8 @@ $( document ).ready(function() {
     })(this));
 
   }).call(this);
-
+  
+  // nav drawer setup
   $nav_set = $('#primary-nav li a'); // get the nav
   $nav_drawer = $('#nav-drawer'); // get the nav drawer
   $sub_nav = $('.subnav-block')    // get all the subnav blocks in the drawer
@@ -120,7 +119,7 @@ $( document ).ready(function() {
   });
 
   
-  /* set up the scrolltracking for animations */
+  /* set up the scrolltracking for animate.css animations */
   var wow = new WOW(
     {
       boxClass:     'wow',      // animated element css class (default is wow)
@@ -136,8 +135,7 @@ $( document ).ready(function() {
     }
   );
   wow.init();
-  
-  /* set up the sticky headers */
+
 
    // add slidedown animation to Bootstrap dropdown //
   $('.dropdown').on('show.bs.dropdown', function(e){
@@ -165,11 +163,6 @@ $( document ).ready(function() {
   $('#secondary-nav li.dropdown a').on('click', function(e){
     toggle_caret(this);
   });
-  
-  // stop the closing and leaving of the menu on off canvas when on mobile
-  $(document).on('click', '.navmenu-fixed-right.navmenu-default .dropdown-menu', function (e) {
-      e.stopPropagation();
-   });
 
   // hide the off canvas menu if wider than 768px
   var hide_off_canvas_for_wide;
