@@ -198,8 +198,12 @@ nav#masthead {
   overflow-y: visible;
   /* end */ }
   .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle {
-    padding: 23px;
-    margin-right: 0; }
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px;
+    padding: 27px 23px;
+    margin: 0; }
     .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle:hover {
       background: #000;
       color: rgba(255, 255, 255, 0.9); }
@@ -207,9 +211,10 @@ nav#masthead {
       background: rgba(255, 255, 255, 0.8);
       position: relative; }
       .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle .icon-bar:nth-of-type(1) {
+        top: 4px;
         transform: rotate(45deg); }
       .navmenu-fixed-right.navmenu-default.offcanvas .navbar-toggle .icon-bar:nth-of-type(2) {
-        top: -6px;
+        top: -2px;
         transform: rotate(-45deg); }
   .navmenu-fixed-right.navmenu-default.offcanvas .navmenu-nav.dropdown-menu {
     position: relative; }
@@ -446,11 +451,13 @@ nav#masthead {
         float: left;
         margin-top: 3px;
         margin-top: -55px;
+        opacity: 0;
         position: relative;
         width: 34px;
         transition: all 0.3s ease; }
         #secondary-nav-container .navbar-header #secondary-nav-brand img.sticky-logo {
           margin-top: -6px;
+          opacity: 1;
           z-index: 800; }
     #secondary-nav-container .navbar-header #secondary-nav-product {
       border-right: 1px solid #d6d6d6;
