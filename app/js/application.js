@@ -1,6 +1,6 @@
 $( document ).ready(function() {
   
-  // sticky header set up
+  // sticky header set up ######################################//
   (function() {
     var reset_scroll;
 
@@ -62,7 +62,8 @@ $( document ).ready(function() {
 
   }).call(this);
   
-  // nav drawer setup
+  // nav drawer setup ##########################################//
+  
   $nav_set = $('#primary-nav li a'); // get the nav
   $nav_drawer = $('#nav-drawer'); // get the nav drawer
   $sub_nav = $('.subnav-block')    // get all the subnav blocks in the drawer

@@ -292,12 +292,10 @@ nav#masthead {
   }
 
   // this fixes the jasny offcanvas dropdown bug
-  // in which the menu closes when exploring or
-  // toggling dropdowns
+  // in which the menu closes when toggling dropdowns
   .navmenu-nav.dropdown-menu { position:relative; }
   .dropdown-backdrop { position: relative; }
   /* end */
-  
   
   .offcanvas-logo {
     background: #222;
@@ -333,7 +331,8 @@ nav#masthead {
     }
 
     ul {
-      margin-bottom: 10px;
+      margin-top: -5px;
+      margin-bottom: 15px;
       padding-bottom: 0;
 
       li > a {
@@ -342,9 +341,11 @@ nav#masthead {
         font-weight: 400;
         padding: 5px 0;
         text-transform: none;
+        transition: padding 0.4s ease;
         
         &:hover {
           background: #444;
+          padding-left: 10px;
         }
       }
     }
@@ -402,6 +403,17 @@ nav#masthead {
       font-weight: normal;
       padding: 12px 0;
       text-transform: none;
+    }
+    
+    .offcanvas-lang li {
+      display: inline-block;
+      float: left;
+      width: 49%;
+      
+      a {
+        display: block;
+        width: 90%;
+      }
     }
   }
 }
@@ -1140,5 +1152,8 @@ nav#masthead {
     h1 {
       margin-top: 0;
     }
+  }
+  #secondary-nav-container .navbar-header #secondary-nav-product {
+    padding-right: 0;
   }
 }

@@ -241,16 +241,19 @@ nav#masthead {
       .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open .dropdown-menu li > a {
         border-top: 0; }
     .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul {
-      margin-bottom: 10px;
+      margin-top: -5px;
+      margin-bottom: 15px;
       padding-bottom: 0; }
       .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a {
         color: rgba(255, 255, 255, 0.9);
         font-size: 16px;
         font-weight: 400;
         padding: 5px 0;
-        text-transform: none; }
+        text-transform: none;
+        transition: padding 0.4s ease; }
         .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul li > a:hover {
-          background: #444; }
+          background: #444;
+          padding-left: 10px; }
     .navmenu-fixed-right.navmenu-default.offcanvas li.dropdown.open ul.offerings li > a {
       color: #00a6fa;
       font-family: "Titillium Web", sans-serif;
@@ -289,6 +292,13 @@ nav#masthead {
     font-weight: normal;
     padding: 12px 0;
     text-transform: none; }
+  .navmenu-fixed-right.navmenu-default.offcanvas li.utility .offcanvas-lang li {
+    display: inline-block;
+    float: left;
+    width: 49%; }
+    .navmenu-fixed-right.navmenu-default.offcanvas li.utility .offcanvas-lang li a {
+      display: block;
+      width: 90%; }
 
 #nav-drawer {
   background: #f8f8f8;
@@ -811,4 +821,6 @@ nav#masthead {
   #hero {
     padding: 55px 0; }
     #hero h1 {
-      margin-top: 0; } }
+      margin-top: 0; }
+  #secondary-nav-container .navbar-header #secondary-nav-product {
+    padding-right: 0; } }
